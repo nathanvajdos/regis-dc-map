@@ -1,0 +1,656 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.331527,
+          32.753521
+        ]
+      },
+      "properties": {
+        "developer": "Edged Energy",
+        "name": "Edged Fort Worth",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "$1.1B hyperscaler DC; zoning approved Apr 8 2026",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.18609,
+          35.034256
+        ]
+      },
+      "properties": {
+        "developer": "Google (funded)",
+        "name": "Goodnight Data Center",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "WEST",
+        "mw": "",
+        "owner": "",
+        "note": "Google-funded; on-site gas plant per TX air permit",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.742806,
+          30.268072
+        ]
+      },
+      "properties": {
+        "developer": "Iron Mountain",
+        "name": "Iron Mountain Austin Campus",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "7-building campus planned outside Austin",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.944127,
+          32.82938
+        ]
+      },
+      "properties": {
+        "developer": "PowerHouse Data Centers",
+        "name": "PowerHouse Irving DC1",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "First Irving DC; topped out Mar 2026",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.14188,
+          29.350229
+        ]
+      },
+      "properties": {
+        "developer": "Microsoft",
+        "name": "Microsoft Medina TX (2 sites)",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "$52M across 2 DCs in Medina County",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.407373,
+          32.470591
+        ]
+      },
+      "properties": {
+        "developer": "TBD (Nolan County $7B)",
+        "name": "Nolan County $7B DC (Sweetwater)",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "WEST",
+        "mw": "",
+        "owner": "",
+        "note": "$7B project; 10-yr tax abatement approved Apr 15 2026",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "developer": "Concord New Energy (HK:00182)",
+        "name": "Concord NE TX 1GW DC",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "OTHER",
+        "mw": 1000,
+        "owner": "",
+        "note": "1 GW ERCOT approval; co-located w/ solar+BESS",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.004801,
+          34.9872
+        ]
+      },
+      "properties": {
+        "developer": "xAI",
+        "name": "Colossus 2 (Mississippi)",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "OTHER",
+        "mw": "",
+        "owner": "",
+        "note": "xAI Colossus 2; MS gas turbines approved Mar 2026",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.395859,
+          32.907322
+        ]
+      },
+      "properties": {
+        "developer": "ACS Infrastructure",
+        "name": "ACS Fort Worth Campus",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "107-acre greenfield; 5-building campus; $2B investment",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.040755,
+          32.832435
+        ]
+      },
+      "properties": {
+        "developer": "Centersquare",
+        "name": "Centersquare Dallas/Fort Worth",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.074586,
+          32.55004
+        ]
+      },
+      "properties": {
+        "developer": "Aligned Energy",
+        "name": "DFW-03",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": 95,
+        "owner": "",
+        "note": "429,600 SF",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.623078,
+          30.482199
+        ]
+      },
+      "properties": {
+        "developer": "Skybox Datacenters",
+        "name": "Skybox - Austin 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": 30,
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.624658,
+          30.482465
+        ]
+      },
+      "properties": {
+        "developer": "Skybox Datacenters",
+        "name": "Skybox - Austin 2",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.787475,
+          29.418291
+        ]
+      },
+      "properties": {
+        "developer": "Cyrus One",
+        "name": "SAT5-SAT6",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": 18,
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.688173,
+          29.46657
+        ]
+      },
+      "properties": {
+        "developer": "Cyrus One",
+        "name": "SAT1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": 9,
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.67281,
+          29.47061
+        ]
+      },
+      "properties": {
+        "developer": "Cyrus One",
+        "name": "SAT2-SAT4",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": 36,
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.67023,
+          29.47128
+        ]
+      },
+      "properties": {
+        "developer": "Cyrus One",
+        "name": "SAT2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.67023,
+          29.47128
+        ]
+      },
+      "properties": {
+        "developer": "Cyrus One",
+        "name": "SAT3",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.67023,
+          29.47128
+        ]
+      },
+      "properties": {
+        "developer": "Cyrus One",
+        "name": "SAT4",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.487034,
+          29.429456
+        ]
+      },
+      "properties": {
+        "developer": "H5 Data Centers",
+        "name": "H5 San Antonio",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "Donald",
+        "note": "85,000 SF",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.652947,
+          29.449217
+        ]
+      },
+      "properties": {
+        "developer": "QTS Data Centers",
+        "name": "San Antonio 2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": 90,
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.796976,
+          29.232907
+        ]
+      },
+      "properties": {
+        "developer": "Rowan",
+        "name": "Project Cinco",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "SA",
+        "mw": 300,
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.671616,
+          29.472025
+        ]
+      },
+      "properties": {
+        "developer": "Stream",
+        "name": "San Antonio II",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.71532,
+          29.44957
+        ]
+      },
+      "properties": {
+        "developer": "Stream",
+        "name": "San Antonio III",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "SA",
+        "mw": 200,
+        "owner": "",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.297352,
+          32.723453
+        ]
+      },
+      "properties": {
+        "developer": "Vantage",
+        "name": "Frontier",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "WEST",
+        "mw": 1400,
+        "owner": "",
+        "note": "Massive Frontier DC campus",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.79316,
+          32.49429
+        ]
+      },
+      "properties": {
+        "developer": "Lancium",
+        "name": "Stargate (Oracle/OpenAI/SoftBank)",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "WEST",
+        "mw": "",
+        "owner": "Donald",
+        "note": "Stargate anchor project",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.756651,
+          32.592201
+        ]
+      },
+      "properties": {
+        "developer": "Yondr Group",
+        "name": "Yondr Lancaster",
+        "status": "In Development",
+        "status_key": "3_In Development",
+        "market": "DFW",
+        "mw": 550,
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.736769,
+          32.58044
+        ]
+      },
+      "properties": {
+        "developer": "Stack Infrastructure",
+        "name": "DFW02",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": 500,
+        "owner": "Nathan",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.820861,
+          32.801826
+        ]
+      },
+      "properties": {
+        "developer": "Equinix",
+        "name": "Infomart Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": 50,
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "developer": "Equinix",
+        "name": "DA1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.820861,
+          32.801826
+        ]
+      },
+      "properties": {
+        "developer": "Equinix",
+        "name": "DA11",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    }
+  ]
+}
