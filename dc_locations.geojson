@@ -11,6 +11,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Edged Energy",
         "name": "Edged Fort Worth",
         "status": "In Development",
@@ -32,6 +33,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Google (funded)",
         "name": "Goodnight Data Center",
         "status": "In Development",
@@ -53,6 +55,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Iron Mountain",
         "name": "Iron Mountain Austin Campus",
         "status": "In Development",
@@ -74,6 +77,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "PowerHouse Data Centers",
         "name": "PowerHouse Irving DC1",
         "status": "Under Construction",
@@ -95,6 +99,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Microsoft",
         "name": "Microsoft Medina TX (2 sites)",
         "status": "In Development",
@@ -116,6 +121,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "TBD (Nolan County $7B)",
         "name": "Nolan County $7B DC (Sweetwater)",
         "status": "In Development",
@@ -137,6 +143,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Concord New Energy (HK:00182)",
         "name": "Concord NE TX 1GW DC",
         "status": "In Development",
@@ -158,6 +165,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "xAI",
         "name": "Colossus 2 (Mississippi)",
         "status": "Under Construction",
@@ -179,6 +187,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "ACS Infrastructure",
         "name": "ACS Fort Worth Campus",
         "status": "In Development",
@@ -200,6 +209,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Centersquare",
         "name": "Centersquare Dallas/Fort Worth",
         "status": "Operating",
@@ -221,6 +231,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Aligned Energy",
         "name": "DFW-03",
         "status": "Under Construction",
@@ -242,6 +253,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Skybox Datacenters",
         "name": "Skybox - Austin 1",
         "status": "Operating",
@@ -263,6 +275,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Skybox Datacenters",
         "name": "Skybox - Austin 2",
         "status": "Under Construction",
@@ -284,6 +297,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Cyrus One",
         "name": "SAT5-SAT6",
         "status": "Operating",
@@ -305,6 +319,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Cyrus One",
         "name": "SAT1",
         "status": "Operating",
@@ -326,6 +341,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Cyrus One",
         "name": "SAT2-SAT4",
         "status": "Operating",
@@ -347,6 +363,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Cyrus One",
         "name": "SAT2",
         "status": "Operating",
@@ -368,6 +385,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Cyrus One",
         "name": "SAT3",
         "status": "Operating",
@@ -389,6 +407,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Cyrus One",
         "name": "SAT4",
         "status": "Operating",
@@ -410,6 +429,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "H5 Data Centers",
         "name": "H5 San Antonio",
         "status": "Operating",
@@ -431,6 +451,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "QTS Data Centers",
         "name": "San Antonio 2",
         "status": "Operating",
@@ -452,6 +473,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Rowan",
         "name": "Project Cinco",
         "status": "In Development",
@@ -473,6 +495,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Stream",
         "name": "San Antonio II",
         "status": "Operating",
@@ -494,6 +517,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Stream",
         "name": "San Antonio III",
         "status": "Under Construction",
@@ -515,6 +539,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Vantage",
         "name": "Frontier",
         "status": "Under Construction",
@@ -536,6 +561,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Lancium",
         "name": "Stargate (Oracle/OpenAI/SoftBank)",
         "status": "Under Construction",
@@ -557,6 +583,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Yondr Group",
         "name": "Yondr Lancaster",
         "status": "In Development",
@@ -578,6 +605,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Stack Infrastructure",
         "name": "DFW02",
         "status": "Under Construction",
@@ -599,6 +627,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Equinix",
         "name": "Infomart Dallas",
         "status": "Operating",
@@ -620,6 +649,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Equinix",
         "name": "DA1",
         "status": "Operating",
@@ -641,6 +671,7 @@
         ]
       },
       "properties": {
+        "layer": "dc",
         "developer": "Equinix",
         "name": "DA11",
         "status": "Operating",
@@ -650,6 +681,132 @@
         "owner": "",
         "note": "",
         "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.5075,
+          27.5306
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Sumlin",
+        "aka": "Laredo",
+        "substation": "AEP Laredo",
+        "stage": "Active development",
+        "note": "Laredo, TX (Webb County). South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Confirmed from email thread 'Project Sumlin \u2014 Laredo Outreach'. Coordinate approximate \u2014 Webb County site centroid.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.1428,
+          34.1223
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Oklaunion",
+        "aka": "Vernon",
+        "substation": "AEP Oklaunion",
+        "stage": "Diligence",
+        "note": "Wilbarger County, TX (zip 76384). Google $1B+ co-located DC announced Feb 2026 validates AEP interconnection. Parcels: HOLTON FAMILY PARTNERSHIP LP, RAMSEY RICHARD & RHONDA per DC Land Sheet. Coordinate approximate \u2014 Vernon area centroid.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.958196,
+          31.915673
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Price",
+        "aka": "Carswell",
+        "substation": "Sam Switch",
+        "stage": "POI analysis",
+        "note": "Navarro County, TX. POI analysis for Sam Switch (Oncor) delivered by Donald Apr 10 2026. KMZ site boundary on file. EXACT coordinate from Regis POI email.",
+        "precise": true,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.4428,
+          32.7708
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Carswell",
+        "aka": "Fort Worth",
+        "substation": "TBD",
+        "stage": "Early",
+        "note": "Fort Worth area. Named after Carswell AFB/JRB. Site details pending from Donald. Coordinate approximate.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.3003,
+          32.75
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Fisher",
+        "aka": "Clear Fork",
+        "substation": "Clear Fork",
+        "stage": "Early",
+        "note": "Fisher County, TX. Substation: Clear Fork. Per DC Land Sheet. Coordinate approximate \u2014 county centroid.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.0,
+          32.75
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Elko",
+        "aka": "Tri County",
+        "substation": "Tri County",
+        "stage": "Early",
+        "note": "Tri County substation area. Exact location TBD \u2014 Regis internal reference. Coordinate approximate.",
+        "precise": false,
+        "color": "#cf222e"
       }
     }
   ]

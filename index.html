@@ -2,32 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Regis DC Locations - Competitive Map</title>
+<title>Regis DC Competitive Map + Project Sites</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.css" rel="stylesheet" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.js"></script>
 <style>
-  body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  body { margin: 0; padding: 0; font-family: -apple-system, 'Segoe UI', Arial, sans-serif; }
   #map { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
   .map-overlay {
     position: absolute; top: 14px; left: 14px; background: #fff;
     border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    padding: 14px 16px; font-size: 13px; z-index: 2; max-width: 280px;
+    padding: 14px 16px; font-size: 13px; z-index: 2; max-width: 300px;
   }
-  .map-overlay h1 { font-size: 15px; margin: 0 0 8px 0; color: #0d1117; }
+  .map-overlay h1 { font-size: 15px; margin: 0 0 6px 0; color: #0d1117; }
   .map-overlay p { margin: 4px 0; color: #57606a; font-size: 12px; }
   .legend { margin-top: 10px; }
+  .legend h2 { font-size: 11px; margin: 8px 0 4px 0; color: #57606a; text-transform: uppercase; letter-spacing: 0.4px; }
   .legend-row { display: flex; align-items: center; margin: 3px 0; font-size: 12px; color: #24292f; }
   .legend-dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; border: 1px solid rgba(0,0,0,0.1); }
+  .legend-star { width: 12px; height: 12px; margin-right: 8px; color: #cf222e; font-size: 14px; line-height: 1; }
   .filter-controls { margin-top: 12px; padding-top: 10px; border-top: 1px solid #d0d7de; }
   .filter-controls label { display: block; font-size: 11px; color: #57606a; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }
   .filter-controls select { width: 100%; padding: 5px; font-size: 12px; border: 1px solid #d0d7de; border-radius: 4px; background: #fff; color: #24292f; }
-  .mapboxgl-popup-content { font-family: -apple-system, 'Segoe UI', sans-serif; padding: 12px 14px; font-size: 12px; max-width: 280px; }
+  .filter-controls .layer-toggles { display: flex; gap: 10px; margin-top: 6px; }
+  .filter-controls .layer-toggles label { flex: 1; display: flex; align-items: center; font-size: 12px; color: #24292f; cursor: pointer; text-transform: none; letter-spacing: 0; font-weight: 500; }
+  .filter-controls .layer-toggles input { margin-right: 5px; }
+  .mapboxgl-popup-content { font-family: -apple-system, 'Segoe UI', sans-serif; padding: 12px 14px; font-size: 12px; max-width: 300px; }
   .mapboxgl-popup-content h3 { margin: 0 0 4px 0; font-size: 13px; color: #0d1117; }
   .mapboxgl-popup-content .dev { font-size: 11px; color: #57606a; margin-bottom: 6px; font-weight: 500; }
   .mapboxgl-popup-content .field { margin: 3px 0; color: #24292f; }
-  .mapboxgl-popup-content .field strong { color: #57606a; font-weight: 500; min-width: 60px; display: inline-block; }
+  .mapboxgl-popup-content .field strong { color: #57606a; font-weight: 500; min-width: 76px; display: inline-block; }
   .mapboxgl-popup-content .note { margin-top: 8px; padding-top: 8px; border-top: 1px solid #eaeef2; font-style: italic; color: #57606a; font-size: 11px; }
+  .mapboxgl-popup-content .regis-badge { background: #cf222e; color: #fff; padding: 2px 7px; border-radius: 3px; font-size: 10px; font-weight: 600; letter-spacing: 0.4px; }
   .footer { position: absolute; bottom: 8px; left: 14px; background: #fff; padding: 6px 10px; border-radius: 4px; font-size: 11px; color: #57606a; box-shadow: 0 1px 4px rgba(0,0,0,0.1); z-index: 2; }
   .footer a { color: #0969da; text-decoration: none; }
 </style>
@@ -35,16 +41,19 @@
 <body>
 <div id="map"></div>
 <div class="map-overlay">
-  <h1>Regis — DC Competitive Map</h1>
-  <p>31 data centers tracked · Auto-updated every Monday 7am CT</p>
+  <h1>Regis DC Competitive Map</h1>
+  <p>31 competitor DCs + 6 Regis project sites · Auto-updated Mon 7am CT</p>
   <div class="legend">
+    <h2>Competitor DCs</h2>
     <div class="legend-row"><span class="legend-dot" style="background:#1a7f37"></span>Operating</div>
     <div class="legend-row"><span class="legend-dot" style="background:#e16f24"></span>Under Construction</div>
     <div class="legend-row"><span class="legend-dot" style="background:#0969da"></span>In Development</div>
     <div class="legend-row"><span class="legend-dot" style="background:#8250df"></span>Proposed</div>
+    <h2>Regis Projects</h2>
+    <div class="legend-row"><span class="legend-star">★</span>Project site (red star)</div>
   </div>
   <div class="filter-controls">
-    <label for="marketFilter">Market</label>
+    <label for="marketFilter">Market (DCs)</label>
     <select id="marketFilter">
       <option value="">All markets</option>
       <option value="DFW">DFW</option>
@@ -57,7 +66,7 @@
     </select>
   </div>
   <div class="filter-controls">
-    <label for="statusFilter">Status</label>
+    <label for="statusFilter">Status (DCs)</label>
     <select id="statusFilter">
       <option value="">All statuses</option>
       <option value="1_Operating">Operating</option>
@@ -66,19 +75,26 @@
       <option value="4_Proposed">Proposed</option>
     </select>
   </div>
+  <div class="filter-controls">
+    <label>Layers</label>
+    <div class="layer-toggles">
+      <label><input type="checkbox" id="toggleDCs" checked>DCs</label>
+      <label><input type="checkbox" id="toggleProjects" checked>Regis projects</label>
+    </div>
+  </div>
 </div>
 <div class="footer">
   Source: <a href="https://app.smartsheet.com/sheets/MfQHrM892gvWm38j44Vh3C5R2X3xxjxvC6G89vQ1" target="_blank">Smartsheet DC Locations</a>
-  · Prepared for Regis Energy Partners
+  · Regis project sites from DC Land Sheet + POI emails
 </div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibmF0aGFudmFqZG9zIiwiYSI6ImNtbzJnZHBlaDByemMycXB1eTVyeDR1eGEifQ.WTV3pptYpG_EFZ5Y11f07Q';
-const GEOJSON = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.331527, 32.753521]}, "properties": {"developer": "Edged Energy", "name": "Edged Fort Worth", "status": "In Development", "status_key": "3_In Development", "market": "DFW", "mw": "", "owner": "", "note": "$1.1B hyperscaler DC; zoning approved Apr 8 2026", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-101.18609, 35.034256]}, "properties": {"developer": "Google (funded)", "name": "Goodnight Data Center", "status": "In Development", "status_key": "3_In Development", "market": "WEST", "mw": "", "owner": "", "note": "Google-funded; on-site gas plant per TX air permit", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.742806, 30.268072]}, "properties": {"developer": "Iron Mountain", "name": "Iron Mountain Austin Campus", "status": "In Development", "status_key": "3_In Development", "market": "AUS", "mw": "", "owner": "", "note": "7-building campus planned outside Austin", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.944127, 32.82938]}, "properties": {"developer": "PowerHouse Data Centers", "name": "PowerHouse Irving DC1", "status": "Under Construction", "status_key": "2_Under Construction", "market": "DFW", "mw": "", "owner": "", "note": "First Irving DC; topped out Mar 2026", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.14188, 29.350229]}, "properties": {"developer": "Microsoft", "name": "Microsoft Medina TX (2 sites)", "status": "In Development", "status_key": "3_In Development", "market": "SA", "mw": "", "owner": "", "note": "$52M across 2 DCs in Medina County", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-100.407373, 32.470591]}, "properties": {"developer": "TBD (Nolan County $7B)", "name": "Nolan County $7B DC (Sweetwater)", "status": "In Development", "status_key": "3_In Development", "market": "WEST", "mw": "", "owner": "", "note": "$7B project; 10-yr tax abatement approved Apr 15 2026", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-87.301493, 33.173192]}, "properties": {"developer": "Concord New Energy (HK:00182)", "name": "Concord NE TX 1GW DC", "status": "In Development", "status_key": "3_In Development", "market": "OTHER", "mw": 1000, "owner": "", "note": "1 GW ERCOT approval; co-located w/ solar+BESS", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-90.004801, 34.9872]}, "properties": {"developer": "xAI", "name": "Colossus 2 (Mississippi)", "status": "Under Construction", "status_key": "2_Under Construction", "market": "OTHER", "mw": "", "owner": "", "note": "xAI Colossus 2; MS gas turbines approved Mar 2026", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.395859, 32.907322]}, "properties": {"developer": "ACS Infrastructure", "name": "ACS Fort Worth Campus", "status": "In Development", "status_key": "3_In Development", "market": "DFW", "mw": "", "owner": "", "note": "107-acre greenfield; 5-building campus; $2B investment", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.040755, 32.832435]}, "properties": {"developer": "Centersquare", "name": "Centersquare Dallas/Fort Worth", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.074586, 32.55004]}, "properties": {"developer": "Aligned Energy", "name": "DFW-03", "status": "Under Construction", "status_key": "2_Under Construction", "market": "DFW", "mw": 95, "owner": "", "note": "429,600 SF", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.623078, 30.482199]}, "properties": {"developer": "Skybox Datacenters", "name": "Skybox - Austin 1", "status": "Operating", "status_key": "1_Operating", "market": "AUS", "mw": 30, "owner": "Nathan", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.624658, 30.482465]}, "properties": {"developer": "Skybox Datacenters", "name": "Skybox - Austin 2", "status": "Under Construction", "status_key": "2_Under Construction", "market": "AUS", "mw": "", "owner": "", "note": "", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.787475, 29.418291]}, "properties": {"developer": "Cyrus One", "name": "SAT5-SAT6", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 18, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.688173, 29.46657]}, "properties": {"developer": "Cyrus One", "name": "SAT1", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 9, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67281, 29.47061]}, "properties": {"developer": "Cyrus One", "name": "SAT2-SAT4", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 36, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67023, 29.47128]}, "properties": {"developer": "Cyrus One", "name": "SAT2", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67023, 29.47128]}, "properties": {"developer": "Cyrus One", "name": "SAT3", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67023, 29.47128]}, "properties": {"developer": "Cyrus One", "name": "SAT4", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.487034, 29.429456]}, "properties": {"developer": "H5 Data Centers", "name": "H5 San Antonio", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "Donald", "note": "85,000 SF", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.652947, 29.449217]}, "properties": {"developer": "QTS Data Centers", "name": "San Antonio 2", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 90, "owner": "Nathan", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.796976, 29.232907]}, "properties": {"developer": "Rowan", "name": "Project Cinco", "status": "In Development", "status_key": "3_In Development", "market": "SA", "mw": 300, "owner": "", "note": "", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.671616, 29.472025]}, "properties": {"developer": "Stream", "name": "San Antonio II", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.71532, 29.44957]}, "properties": {"developer": "Stream", "name": "San Antonio III", "status": "Under Construction", "status_key": "2_Under Construction", "market": "SA", "mw": 200, "owner": "", "note": "", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.297352, 32.723453]}, "properties": {"developer": "Vantage", "name": "Frontier", "status": "Under Construction", "status_key": "2_Under Construction", "market": "WEST", "mw": 1400, "owner": "", "note": "Massive Frontier DC campus", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.79316, 32.49429]}, "properties": {"developer": "Lancium", "name": "Stargate (Oracle/OpenAI/SoftBank)", "status": "Under Construction", "status_key": "2_Under Construction", "market": "WEST", "mw": "", "owner": "Donald", "note": "Stargate anchor project", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.756651, 32.592201]}, "properties": {"developer": "Yondr Group", "name": "Yondr Lancaster", "status": "In Development", "status_key": "3_In Development", "market": "DFW", "mw": 550, "owner": "", "note": "", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.736769, 32.58044]}, "properties": {"developer": "Stack Infrastructure", "name": "DFW02", "status": "Under Construction", "status_key": "2_Under Construction", "market": "DFW", "mw": 500, "owner": "Nathan", "note": "", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.820861, 32.801826]}, "properties": {"developer": "Equinix", "name": "Infomart Dallas", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": 50, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.819519, 32.800985]}, "properties": {"developer": "Equinix", "name": "DA1", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.820861, 32.801826]}, "properties": {"developer": "Equinix", "name": "DA11", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}]};
+const GEOJSON = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.331527, 32.753521]}, "properties": {"layer": "dc", "developer": "Edged Energy", "name": "Edged Fort Worth", "status": "In Development", "status_key": "3_In Development", "market": "DFW", "mw": "", "owner": "", "note": "$1.1B hyperscaler DC; zoning approved Apr 8 2026", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-101.18609, 35.034256]}, "properties": {"layer": "dc", "developer": "Google (funded)", "name": "Goodnight Data Center", "status": "In Development", "status_key": "3_In Development", "market": "WEST", "mw": "", "owner": "", "note": "Google-funded; on-site gas plant per TX air permit", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.742806, 30.268072]}, "properties": {"layer": "dc", "developer": "Iron Mountain", "name": "Iron Mountain Austin Campus", "status": "In Development", "status_key": "3_In Development", "market": "AUS", "mw": "", "owner": "", "note": "7-building campus planned outside Austin", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.944127, 32.82938]}, "properties": {"layer": "dc", "developer": "PowerHouse Data Centers", "name": "PowerHouse Irving DC1", "status": "Under Construction", "status_key": "2_Under Construction", "market": "DFW", "mw": "", "owner": "", "note": "First Irving DC; topped out Mar 2026", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.14188, 29.350229]}, "properties": {"layer": "dc", "developer": "Microsoft", "name": "Microsoft Medina TX (2 sites)", "status": "In Development", "status_key": "3_In Development", "market": "SA", "mw": "", "owner": "", "note": "$52M across 2 DCs in Medina County", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-100.407373, 32.470591]}, "properties": {"layer": "dc", "developer": "TBD (Nolan County $7B)", "name": "Nolan County $7B DC (Sweetwater)", "status": "In Development", "status_key": "3_In Development", "market": "WEST", "mw": "", "owner": "", "note": "$7B project; 10-yr tax abatement approved Apr 15 2026", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-87.301493, 33.173192]}, "properties": {"layer": "dc", "developer": "Concord New Energy (HK:00182)", "name": "Concord NE TX 1GW DC", "status": "In Development", "status_key": "3_In Development", "market": "OTHER", "mw": 1000, "owner": "", "note": "1 GW ERCOT approval; co-located w/ solar+BESS", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-90.004801, 34.9872]}, "properties": {"layer": "dc", "developer": "xAI", "name": "Colossus 2 (Mississippi)", "status": "Under Construction", "status_key": "2_Under Construction", "market": "OTHER", "mw": "", "owner": "", "note": "xAI Colossus 2; MS gas turbines approved Mar 2026", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.395859, 32.907322]}, "properties": {"layer": "dc", "developer": "ACS Infrastructure", "name": "ACS Fort Worth Campus", "status": "In Development", "status_key": "3_In Development", "market": "DFW", "mw": "", "owner": "", "note": "107-acre greenfield; 5-building campus; $2B investment", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.040755, 32.832435]}, "properties": {"layer": "dc", "developer": "Centersquare", "name": "Centersquare Dallas/Fort Worth", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.074586, 32.55004]}, "properties": {"layer": "dc", "developer": "Aligned Energy", "name": "DFW-03", "status": "Under Construction", "status_key": "2_Under Construction", "market": "DFW", "mw": 95, "owner": "", "note": "429,600 SF", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.623078, 30.482199]}, "properties": {"layer": "dc", "developer": "Skybox Datacenters", "name": "Skybox - Austin 1", "status": "Operating", "status_key": "1_Operating", "market": "AUS", "mw": 30, "owner": "Nathan", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.624658, 30.482465]}, "properties": {"layer": "dc", "developer": "Skybox Datacenters", "name": "Skybox - Austin 2", "status": "Under Construction", "status_key": "2_Under Construction", "market": "AUS", "mw": "", "owner": "", "note": "", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.787475, 29.418291]}, "properties": {"layer": "dc", "developer": "Cyrus One", "name": "SAT5-SAT6", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 18, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.688173, 29.46657]}, "properties": {"layer": "dc", "developer": "Cyrus One", "name": "SAT1", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 9, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67281, 29.47061]}, "properties": {"layer": "dc", "developer": "Cyrus One", "name": "SAT2-SAT4", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 36, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67023, 29.47128]}, "properties": {"layer": "dc", "developer": "Cyrus One", "name": "SAT2", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67023, 29.47128]}, "properties": {"layer": "dc", "developer": "Cyrus One", "name": "SAT3", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.67023, 29.47128]}, "properties": {"layer": "dc", "developer": "Cyrus One", "name": "SAT4", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.487034, 29.429456]}, "properties": {"layer": "dc", "developer": "H5 Data Centers", "name": "H5 San Antonio", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "Donald", "note": "85,000 SF", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.652947, 29.449217]}, "properties": {"layer": "dc", "developer": "QTS Data Centers", "name": "San Antonio 2", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": 90, "owner": "Nathan", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.796976, 29.232907]}, "properties": {"layer": "dc", "developer": "Rowan", "name": "Project Cinco", "status": "In Development", "status_key": "3_In Development", "market": "SA", "mw": 300, "owner": "", "note": "", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.671616, 29.472025]}, "properties": {"layer": "dc", "developer": "Stream", "name": "San Antonio II", "status": "Operating", "status_key": "1_Operating", "market": "SA", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-98.71532, 29.44957]}, "properties": {"layer": "dc", "developer": "Stream", "name": "San Antonio III", "status": "Under Construction", "status_key": "2_Under Construction", "market": "SA", "mw": 200, "owner": "", "note": "", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.297352, 32.723453]}, "properties": {"layer": "dc", "developer": "Vantage", "name": "Frontier", "status": "Under Construction", "status_key": "2_Under Construction", "market": "WEST", "mw": 1400, "owner": "", "note": "Massive Frontier DC campus", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.79316, 32.49429]}, "properties": {"layer": "dc", "developer": "Lancium", "name": "Stargate (Oracle/OpenAI/SoftBank)", "status": "Under Construction", "status_key": "2_Under Construction", "market": "WEST", "mw": "", "owner": "Donald", "note": "Stargate anchor project", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.756651, 32.592201]}, "properties": {"layer": "dc", "developer": "Yondr Group", "name": "Yondr Lancaster", "status": "In Development", "status_key": "3_In Development", "market": "DFW", "mw": 550, "owner": "", "note": "", "color": "#0969da"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.736769, 32.58044]}, "properties": {"layer": "dc", "developer": "Stack Infrastructure", "name": "DFW02", "status": "Under Construction", "status_key": "2_Under Construction", "market": "DFW", "mw": 500, "owner": "Nathan", "note": "", "color": "#e16f24"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.820861, 32.801826]}, "properties": {"layer": "dc", "developer": "Equinix", "name": "Infomart Dallas", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": 50, "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.819519, 32.800985]}, "properties": {"layer": "dc", "developer": "Equinix", "name": "DA1", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.820861, 32.801826]}, "properties": {"layer": "dc", "developer": "Equinix", "name": "DA11", "status": "Operating", "status_key": "1_Operating", "market": "DFW", "mw": "", "owner": "", "note": "", "color": "#1a7f37"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.5075, 27.5306]}, "properties": {"layer": "project", "developer": "REGIS", "name": "Project Sumlin", "aka": "Laredo", "substation": "AEP Laredo", "stage": "Active development", "note": "Laredo, TX (Webb County). South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Confirmed from email thread 'Project Sumlin \u2014 Laredo Outreach'. Coordinate approximate \u2014 Webb County site centroid.", "precise": false, "color": "#cf222e"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-99.1428, 34.1223]}, "properties": {"layer": "project", "developer": "REGIS", "name": "Project Oklaunion", "aka": "Vernon", "substation": "AEP Oklaunion", "stage": "Diligence", "note": "Wilbarger County, TX (zip 76384). Google $1B+ co-located DC announced Feb 2026 validates AEP interconnection. Parcels: HOLTON FAMILY PARTNERSHIP LP, RAMSEY RICHARD & RHONDA per DC Land Sheet. Coordinate approximate \u2014 Vernon area centroid.", "precise": false, "color": "#cf222e"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-96.958196, 31.915673]}, "properties": {"layer": "project", "developer": "REGIS", "name": "Project Price", "aka": "Carswell", "substation": "Sam Switch", "stage": "POI analysis", "note": "Navarro County, TX. POI analysis for Sam Switch (Oncor) delivered by Donald Apr 10 2026. KMZ site boundary on file. EXACT coordinate from Regis POI email.", "precise": true, "color": "#cf222e"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-97.4428, 32.7708]}, "properties": {"layer": "project", "developer": "REGIS", "name": "Project Carswell", "aka": "Fort Worth", "substation": "TBD", "stage": "Early", "note": "Fort Worth area. Named after Carswell AFB/JRB. Site details pending from Donald. Coordinate approximate.", "precise": false, "color": "#cf222e"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-100.3003, 32.75]}, "properties": {"layer": "project", "developer": "REGIS", "name": "Project Fisher", "aka": "Clear Fork", "substation": "Clear Fork", "stage": "Early", "note": "Fisher County, TX. Substation: Clear Fork. Per DC Land Sheet. Coordinate approximate \u2014 county centroid.", "precise": false, "color": "#cf222e"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-100.0, 32.75]}, "properties": {"layer": "project", "developer": "REGIS", "name": "Project Elko", "aka": "Tri County", "substation": "Tri County", "stage": "Early", "note": "Tri County substation area. Exact location TBD \u2014 Regis internal reference. Coordinate approximate.", "precise": false, "color": "#cf222e"}}]};
 
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/light-v11',
-  center: [-99.5, 31.2],
+  center: [-99.5, 31.5],
   zoom: 5.2,
   minZoom: 3,
   maxZoom: 17,
@@ -88,11 +104,14 @@ map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 map.addControl(new mapboxgl.ScaleControl({ maxWidth: 120, unit: 'imperial' }), 'bottom-right');
 
 map.on('load', () => {
-  map.addSource('dcs', { type: 'geojson', data: GEOJSON });
+  map.addSource('points', { type: 'geojson', data: GEOJSON });
+
+  // DC layer (circles)
   map.addLayer({
     id: 'dcs-circles',
     type: 'circle',
-    source: 'dcs',
+    source: 'points',
+    filter: ['==', ['get', 'layer'], 'dc'],
     paint: {
       'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 5, 12, 10, 16, 18],
       'circle-color': ['get', 'color'],
@@ -102,10 +121,46 @@ map.on('load', () => {
     },
   });
 
-  map.on('click', 'dcs-circles', (e) => {
-    const f = e.features[0];
+  // Regis project layer (larger red stars via circles with outer halo)
+  map.addLayer({
+    id: 'projects-halo',
+    type: 'circle',
+    source: 'points',
+    filter: ['==', ['get', 'layer'], 'project'],
+    paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 12, 12, 22, 16, 34],
+      'circle-color': '#cf222e',
+      'circle-opacity': 0.18,
+      'circle-stroke-width': 0,
+    },
+  });
+  map.addLayer({
+    id: 'projects-circles',
+    type: 'circle',
+    source: 'points',
+    filter: ['==', ['get', 'layer'], 'project'],
+    paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 7, 12, 13, 16, 22],
+      'circle-color': '#cf222e',
+      'circle-stroke-width': 3,
+      'circle-stroke-color': '#ffffff',
+      'circle-opacity': 1.0,
+    },
+  });
+
+  const popupFor = (f) => {
     const p = f.properties;
-    const html = `
+    if (p.layer === 'project') {
+      return `
+        <div class="regis-badge">REGIS PROJECT</div>
+        <h3 style="margin-top:8px;">${p.name}</h3>
+        <div class="dev">${p.aka} · ${p.stage}</div>
+        <div class="field"><strong>Substation:</strong> ${p.substation}</div>
+        <div class="field"><strong>Accuracy:</strong> ${p.precise === 'true' ? 'exact coords' : 'approximate — county/area centroid'}</div>
+        ${p.note ? `<div class="note">${p.note}</div>` : ''}
+      `;
+    }
+    return `
       <h3>${p.name || p.developer}</h3>
       <div class="dev">${p.developer}</div>
       <div class="field"><strong>Status:</strong> ${p.status}</div>
@@ -114,25 +169,43 @@ map.on('load', () => {
       ${p.owner ? `<div class="field"><strong>Regis owner:</strong> ${p.owner}</div>` : ''}
       ${p.note ? `<div class="note">${p.note}</div>` : ''}
     `;
-    new mapboxgl.Popup({ closeButton: true, maxWidth: '300px' })
-      .setLngLat(f.geometry.coordinates)
-      .setHTML(html)
-      .addTo(map);
-  });
+  };
 
-  map.on('mouseenter', 'dcs-circles', () => { map.getCanvas().style.cursor = 'pointer'; });
-  map.on('mouseleave', 'dcs-circles', () => { map.getCanvas().style.cursor = ''; });
+  const clickHandler = (e) => {
+    const f = e.features[0];
+    new mapboxgl.Popup({ closeButton: true, maxWidth: '320px' })
+      .setLngLat(f.geometry.coordinates)
+      .setHTML(popupFor(f))
+      .addTo(map);
+  };
+
+  map.on('click', 'dcs-circles', clickHandler);
+  map.on('click', 'projects-circles', clickHandler);
+  ['dcs-circles', 'projects-circles'].forEach(id => {
+    map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer'; });
+    map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
+  });
 
   const applyFilter = () => {
     const market = document.getElementById('marketFilter').value;
     const status = document.getElementById('statusFilter').value;
-    const conds = ['all'];
+    const conds = ['all', ['==', ['get', 'layer'], 'dc']];
     if (market) conds.push(['==', ['get', 'market'], market]);
     if (status) conds.push(['==', ['get', 'status_key'], status]);
-    map.setFilter('dcs-circles', conds.length > 1 ? conds : null);
+    map.setFilter('dcs-circles', conds);
   };
   document.getElementById('marketFilter').addEventListener('change', applyFilter);
   document.getElementById('statusFilter').addEventListener('change', applyFilter);
+
+  const applyLayerToggle = () => {
+    const dcVis = document.getElementById('toggleDCs').checked ? 'visible' : 'none';
+    const projVis = document.getElementById('toggleProjects').checked ? 'visible' : 'none';
+    map.setLayoutProperty('dcs-circles', 'visibility', dcVis);
+    map.setLayoutProperty('projects-circles', 'visibility', projVis);
+    map.setLayoutProperty('projects-halo', 'visibility', projVis);
+  };
+  document.getElementById('toggleDCs').addEventListener('change', applyLayerToggle);
+  document.getElementById('toggleProjects').addEventListener('change', applyLayerToggle);
 });
 </script>
 </body>

@@ -1,12 +1,12 @@
 """
-Build a self-contained Mapbox GL JS HTML map from a list of Regis DC Locations.
+Build a self-contained Mapbox GL JS HTML map from Regis DC Locations
++ Regis project sites as a distinct layer.
 
-Input: hardcoded DC list (extracted from Smartsheet via MCP).
-Output: dc_locations_map.html — a single HTML file that loads Mapbox GL JS client-side
-        and renders all DCs as color-coded pins with click-to-detail popups.
+Input: hardcoded DC list (extracted from Smartsheet DC Locations Sheet)
+       + hardcoded Regis project site list (from DC Land Sheet + emails).
+Output: index.html  — single HTML file with two layers.
 
-This is the v1 generator. The weekly trigger will extend it to pull fresh data from
-Smartsheet every Monday.
+Run: python build_map.py
 """
 
 import json
@@ -18,8 +18,10 @@ import urllib.request
 
 MAPBOX_TOKEN = "pk.eyJ1IjoibmF0aGFudmFqZG9zIiwiYSI6ImNtbzJnZHBlaDByemMycXB1eTVyeDR1eGEifQ.WTV3pptYpG_EFZ5Y11f07Q"
 
+# ============================================================================
+# COMPETITOR DATA CENTERS (from Smartsheet DC Locations Sheet)
+# ============================================================================
 DCS = [
-    # Developer, DC Name, Status, Primary Market, Address, City, County, State, Zip, MW, Owner
     {"developer": "Edged Energy", "name": "Edged Fort Worth", "status": "3_In Development", "market": "DFW", "address": None, "city": "Fort Worth", "county": None, "state": "TX", "zip": None, "mw": None, "owner": None, "note": "$1.1B hyperscaler DC; zoning approved Apr 8 2026"},
     {"developer": "Google (funded)", "name": "Goodnight Data Center", "status": "3_In Development", "market": "WEST", "address": None, "city": "Goodnight", "county": "Armstrong", "state": "TX", "zip": None, "mw": None, "owner": None, "note": "Google-funded; on-site gas plant per TX air permit"},
     {"developer": "Iron Mountain", "name": "Iron Mountain Austin Campus", "status": "3_In Development", "market": "AUS", "address": None, "city": "Austin", "county": None, "state": "TX", "zip": None, "mw": None, "owner": None, "note": "7-building campus planned outside Austin"},
@@ -53,6 +55,19 @@ DCS = [
     {"developer": "Equinix", "name": "DA11", "status": "1_Operating", "market": "DFW", "address": "1990 North Stemmons Freeway", "city": "Dallas", "county": None, "state": "TX", "zip": "75207", "mw": None, "owner": None, "note": None},
 ]
 
+# ============================================================================
+# REGIS PROJECT SITES (from DC Land Sheet + email coordinates)
+# ============================================================================
+# Coordinates are best-known from internal Regis sources (email threads, POI analyses).
+# Ones marked "approximate" are county-centered pending precise site control data.
+PROJECTS = [
+    {"name": "Sumlin",    "aka": "Laredo",           "substation": "AEP Laredo",  "lon": -99.5075, "lat": 27.5306, "stage": "Active development", "note": "Laredo, TX (Webb County). South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Confirmed from email thread 'Project Sumlin — Laredo Outreach'. Coordinate approximate — Webb County site centroid.", "precise": False},
+    {"name": "Oklaunion", "aka": "Vernon",           "substation": "AEP Oklaunion","lon": -99.1428, "lat": 34.1223, "stage": "Diligence",           "note": "Wilbarger County, TX (zip 76384). Google $1B+ co-located DC announced Feb 2026 validates AEP interconnection. Parcels: HOLTON FAMILY PARTNERSHIP LP, RAMSEY RICHARD & RHONDA per DC Land Sheet. Coordinate approximate — Vernon area centroid.", "precise": False},
+    {"name": "Price",     "aka": "Carswell",         "substation": "Sam Switch",  "lon": -96.958196, "lat": 31.915673, "stage": "POI analysis",      "note": "Navarro County, TX. POI analysis for Sam Switch (Oncor) delivered by Donald Apr 10 2026. KMZ site boundary on file. EXACT coordinate from Regis POI email.", "precise": True},
+    {"name": "Carswell",  "aka": "Fort Worth",       "substation": "TBD",         "lon": -97.4428, "lat": 32.7708, "stage": "Early",               "note": "Fort Worth area. Named after Carswell AFB/JRB. Site details pending from Donald. Coordinate approximate.", "precise": False},
+    {"name": "Fisher",    "aka": "Clear Fork",       "substation": "Clear Fork",  "lon": -100.3003, "lat": 32.7500, "stage": "Early",               "note": "Fisher County, TX. Substation: Clear Fork. Per DC Land Sheet. Coordinate approximate — county centroid.", "precise": False},
+    {"name": "Elko",      "aka": "Tri County",       "substation": "Tri County",  "lon": -100.0000, "lat": 32.7500, "stage": "Early",               "note": "Tri County substation area. Exact location TBD — Regis internal reference. Coordinate approximate.", "precise": False},
+]
 
 STATUS_COLORS = {
     "1_Operating": "#1a7f37",
@@ -63,7 +78,6 @@ STATUS_COLORS = {
 
 
 def geocode(query):
-    """Call Mapbox Geocoding API v5 for an address string. Returns (lon, lat) or None."""
     encoded = urllib.parse.quote(query)
     url = (
         f"https://api.mapbox.com/geocoding/v5/mapbox.places/{encoded}.json"
@@ -76,7 +90,7 @@ def geocode(query):
         if not feats:
             return None
         center = feats[0]["center"]
-        return (center[0], center[1])  # lon, lat
+        return (center[0], center[1])
     except Exception as e:
         print(f"  geocode error: {e}", file=sys.stderr)
         return None
@@ -91,90 +105,112 @@ def build_query(dc):
 
 def main():
     out_dir = os.path.dirname(os.path.abspath(__file__))
-    features = []
 
-    print(f"Geocoding {len(DCS)} DC locations via Mapbox...")
+    # ---- Geocode DCs ----
+    dc_features = []
+    print(f"Geocoding {len(DCS)} competitor DCs...")
     for i, dc in enumerate(DCS):
         query = build_query(dc)
         if not query:
-            print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} SKIP (no location)")
+            print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} SKIP")
             continue
         coords = geocode(query)
         if not coords:
-            print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} FAIL  ({query})")
+            print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} FAIL")
             continue
         lon, lat = coords
-        print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} OK    {lat:.4f}, {lon:.4f}")
-
+        print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} OK")
         status_label = dc["status"].replace("1_", "").replace("2_", "").replace("3_", "").replace("4_", "")
-        props = {
-            "developer": dc["developer"],
-            "name": dc["name"] or "",
-            "status": status_label,
-            "status_key": dc["status"],
-            "market": dc["market"] or "",
-            "mw": dc["mw"] or "",
-            "owner": dc["owner"] or "",
-            "note": dc["note"] or "",
-            "color": STATUS_COLORS.get(dc["status"], "#6e7781"),
-        }
-        features.append(
-            {
-                "type": "Feature",
-                "geometry": {"type": "Point", "coordinates": [lon, lat]},
-                "properties": props,
-            }
-        )
-        time.sleep(0.1)  # be polite to Mapbox
+        dc_features.append({
+            "type": "Feature",
+            "geometry": {"type": "Point", "coordinates": [lon, lat]},
+            "properties": {
+                "layer": "dc",
+                "developer": dc["developer"],
+                "name": dc["name"] or "",
+                "status": status_label,
+                "status_key": dc["status"],
+                "market": dc["market"] or "",
+                "mw": dc["mw"] or "",
+                "owner": dc["owner"] or "",
+                "note": dc["note"] or "",
+                "color": STATUS_COLORS.get(dc["status"], "#6e7781"),
+            },
+        })
+        time.sleep(0.1)
 
+    # ---- Regis project sites (pre-coded coordinates) ----
+    project_features = []
+    print(f"\nAdding {len(PROJECTS)} Regis project sites...")
+    for p in PROJECTS:
+        print(f"  * Project {p['name']:<12} ({'EXACT' if p['precise'] else 'approx'}) -> {p['lat']:.4f}, {p['lon']:.4f}")
+        project_features.append({
+            "type": "Feature",
+            "geometry": {"type": "Point", "coordinates": [p["lon"], p["lat"]]},
+            "properties": {
+                "layer": "project",
+                "developer": "REGIS",
+                "name": f"Project {p['name']}",
+                "aka": p["aka"],
+                "substation": p["substation"],
+                "stage": p["stage"],
+                "note": p["note"],
+                "precise": p["precise"],
+                "color": "#cf222e",
+            },
+        })
+
+    features = dc_features + project_features
     geojson = {"type": "FeatureCollection", "features": features}
 
-    html = generate_html(geojson)
-    out_path = os.path.join(out_dir, "dc_locations_map.html")
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(html)
-
-    geojson_path = os.path.join(out_dir, "dc_locations.geojson")
-    with open(geojson_path, "w", encoding="utf-8") as f:
+    with open(os.path.join(out_dir, "dc_locations.geojson"), "w", encoding="utf-8") as f:
         json.dump(geojson, f, indent=2)
 
-    print(f"\n[OK] Geocoded {len(features)}/{len(DCS)} DCs.")
-    print(f"[OK] Wrote {out_path}")
-    print(f"[OK] Wrote {geojson_path}")
+    with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(generate_html(geojson, len(dc_features), len(project_features)))
+
+    print(f"\n[OK] {len(dc_features)} DCs + {len(project_features)} Regis projects = {len(features)} pins total.")
+    print(f"[OK] Wrote index.html and dc_locations.geojson in {out_dir}")
 
 
-def generate_html(geojson):
+def generate_html(geojson, n_dcs, n_projects):
     geojson_str = json.dumps(geojson)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Regis DC Locations - Competitive Map</title>
+<title>Regis DC Competitive Map + Project Sites</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.css" rel="stylesheet" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.js"></script>
 <style>
-  body {{ margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }}
+  body {{ margin: 0; padding: 0; font-family: -apple-system, 'Segoe UI', Arial, sans-serif; }}
   #map {{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; }}
   .map-overlay {{
     position: absolute; top: 14px; left: 14px; background: #fff;
     border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    padding: 14px 16px; font-size: 13px; z-index: 2; max-width: 280px;
+    padding: 14px 16px; font-size: 13px; z-index: 2; max-width: 300px;
   }}
-  .map-overlay h1 {{ font-size: 15px; margin: 0 0 8px 0; color: #0d1117; }}
+  .map-overlay h1 {{ font-size: 15px; margin: 0 0 6px 0; color: #0d1117; }}
   .map-overlay p {{ margin: 4px 0; color: #57606a; font-size: 12px; }}
   .legend {{ margin-top: 10px; }}
+  .legend h2 {{ font-size: 11px; margin: 8px 0 4px 0; color: #57606a; text-transform: uppercase; letter-spacing: 0.4px; }}
   .legend-row {{ display: flex; align-items: center; margin: 3px 0; font-size: 12px; color: #24292f; }}
   .legend-dot {{ width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; border: 1px solid rgba(0,0,0,0.1); }}
+  .legend-star {{ width: 12px; height: 12px; margin-right: 8px; color: #cf222e; font-size: 14px; line-height: 1; }}
   .filter-controls {{ margin-top: 12px; padding-top: 10px; border-top: 1px solid #d0d7de; }}
   .filter-controls label {{ display: block; font-size: 11px; color: #57606a; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }}
   .filter-controls select {{ width: 100%; padding: 5px; font-size: 12px; border: 1px solid #d0d7de; border-radius: 4px; background: #fff; color: #24292f; }}
-  .mapboxgl-popup-content {{ font-family: -apple-system, 'Segoe UI', sans-serif; padding: 12px 14px; font-size: 12px; max-width: 280px; }}
+  .filter-controls .layer-toggles {{ display: flex; gap: 10px; margin-top: 6px; }}
+  .filter-controls .layer-toggles label {{ flex: 1; display: flex; align-items: center; font-size: 12px; color: #24292f; cursor: pointer; text-transform: none; letter-spacing: 0; font-weight: 500; }}
+  .filter-controls .layer-toggles input {{ margin-right: 5px; }}
+  .mapboxgl-popup-content {{ font-family: -apple-system, 'Segoe UI', sans-serif; padding: 12px 14px; font-size: 12px; max-width: 300px; }}
   .mapboxgl-popup-content h3 {{ margin: 0 0 4px 0; font-size: 13px; color: #0d1117; }}
   .mapboxgl-popup-content .dev {{ font-size: 11px; color: #57606a; margin-bottom: 6px; font-weight: 500; }}
   .mapboxgl-popup-content .field {{ margin: 3px 0; color: #24292f; }}
-  .mapboxgl-popup-content .field strong {{ color: #57606a; font-weight: 500; min-width: 60px; display: inline-block; }}
+  .mapboxgl-popup-content .field strong {{ color: #57606a; font-weight: 500; min-width: 76px; display: inline-block; }}
   .mapboxgl-popup-content .note {{ margin-top: 8px; padding-top: 8px; border-top: 1px solid #eaeef2; font-style: italic; color: #57606a; font-size: 11px; }}
+  .mapboxgl-popup-content .regis-badge {{ background: #cf222e; color: #fff; padding: 2px 7px; border-radius: 3px; font-size: 10px; font-weight: 600; letter-spacing: 0.4px; }}
   .footer {{ position: absolute; bottom: 8px; left: 14px; background: #fff; padding: 6px 10px; border-radius: 4px; font-size: 11px; color: #57606a; box-shadow: 0 1px 4px rgba(0,0,0,0.1); z-index: 2; }}
   .footer a {{ color: #0969da; text-decoration: none; }}
 </style>
@@ -182,16 +218,19 @@ def generate_html(geojson):
 <body>
 <div id="map"></div>
 <div class="map-overlay">
-  <h1>Regis — DC Competitive Map</h1>
-  <p>{len(geojson['features'])} data centers tracked · Auto-updated every Monday 7am CT</p>
+  <h1>Regis DC Competitive Map</h1>
+  <p>{n_dcs} competitor DCs + {n_projects} Regis project sites · Auto-updated Mon 7am CT</p>
   <div class="legend">
+    <h2>Competitor DCs</h2>
     <div class="legend-row"><span class="legend-dot" style="background:#1a7f37"></span>Operating</div>
     <div class="legend-row"><span class="legend-dot" style="background:#e16f24"></span>Under Construction</div>
     <div class="legend-row"><span class="legend-dot" style="background:#0969da"></span>In Development</div>
     <div class="legend-row"><span class="legend-dot" style="background:#8250df"></span>Proposed</div>
+    <h2>Regis Projects</h2>
+    <div class="legend-row"><span class="legend-star">★</span>Project site (red star)</div>
   </div>
   <div class="filter-controls">
-    <label for="marketFilter">Market</label>
+    <label for="marketFilter">Market (DCs)</label>
     <select id="marketFilter">
       <option value="">All markets</option>
       <option value="DFW">DFW</option>
@@ -204,7 +243,7 @@ def generate_html(geojson):
     </select>
   </div>
   <div class="filter-controls">
-    <label for="statusFilter">Status</label>
+    <label for="statusFilter">Status (DCs)</label>
     <select id="statusFilter">
       <option value="">All statuses</option>
       <option value="1_Operating">Operating</option>
@@ -213,10 +252,17 @@ def generate_html(geojson):
       <option value="4_Proposed">Proposed</option>
     </select>
   </div>
+  <div class="filter-controls">
+    <label>Layers</label>
+    <div class="layer-toggles">
+      <label><input type="checkbox" id="toggleDCs" checked>DCs</label>
+      <label><input type="checkbox" id="toggleProjects" checked>Regis projects</label>
+    </div>
+  </div>
 </div>
 <div class="footer">
   Source: <a href="https://app.smartsheet.com/sheets/MfQHrM892gvWm38j44Vh3C5R2X3xxjxvC6G89vQ1" target="_blank">Smartsheet DC Locations</a>
-  · Prepared for Regis Energy Partners
+  · Regis project sites from DC Land Sheet + POI emails
 </div>
 <script>
 mapboxgl.accessToken = '{MAPBOX_TOKEN}';
@@ -225,7 +271,7 @@ const GEOJSON = {geojson_str};
 const map = new mapboxgl.Map({{
   container: 'map',
   style: 'mapbox://styles/mapbox/light-v11',
-  center: [-99.5, 31.2],
+  center: [-99.5, 31.5],
   zoom: 5.2,
   minZoom: 3,
   maxZoom: 17,
@@ -235,11 +281,14 @@ map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 map.addControl(new mapboxgl.ScaleControl({{ maxWidth: 120, unit: 'imperial' }}), 'bottom-right');
 
 map.on('load', () => {{
-  map.addSource('dcs', {{ type: 'geojson', data: GEOJSON }});
+  map.addSource('points', {{ type: 'geojson', data: GEOJSON }});
+
+  // DC layer (circles)
   map.addLayer({{
     id: 'dcs-circles',
     type: 'circle',
-    source: 'dcs',
+    source: 'points',
+    filter: ['==', ['get', 'layer'], 'dc'],
     paint: {{
       'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 5, 12, 10, 16, 18],
       'circle-color': ['get', 'color'],
@@ -249,10 +298,46 @@ map.on('load', () => {{
     }},
   }});
 
-  map.on('click', 'dcs-circles', (e) => {{
-    const f = e.features[0];
+  // Regis project layer (larger red stars via circles with outer halo)
+  map.addLayer({{
+    id: 'projects-halo',
+    type: 'circle',
+    source: 'points',
+    filter: ['==', ['get', 'layer'], 'project'],
+    paint: {{
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 12, 12, 22, 16, 34],
+      'circle-color': '#cf222e',
+      'circle-opacity': 0.18,
+      'circle-stroke-width': 0,
+    }},
+  }});
+  map.addLayer({{
+    id: 'projects-circles',
+    type: 'circle',
+    source: 'points',
+    filter: ['==', ['get', 'layer'], 'project'],
+    paint: {{
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 7, 12, 13, 16, 22],
+      'circle-color': '#cf222e',
+      'circle-stroke-width': 3,
+      'circle-stroke-color': '#ffffff',
+      'circle-opacity': 1.0,
+    }},
+  }});
+
+  const popupFor = (f) => {{
     const p = f.properties;
-    const html = `
+    if (p.layer === 'project') {{
+      return `
+        <div class="regis-badge">REGIS PROJECT</div>
+        <h3 style="margin-top:8px;">${{p.name}}</h3>
+        <div class="dev">${{p.aka}} · ${{p.stage}}</div>
+        <div class="field"><strong>Substation:</strong> ${{p.substation}}</div>
+        <div class="field"><strong>Accuracy:</strong> ${{p.precise === 'true' ? 'exact coords' : 'approximate — county/area centroid'}}</div>
+        ${{p.note ? `<div class="note">${{p.note}}</div>` : ''}}
+      `;
+    }}
+    return `
       <h3>${{p.name || p.developer}}</h3>
       <div class="dev">${{p.developer}}</div>
       <div class="field"><strong>Status:</strong> ${{p.status}}</div>
@@ -261,25 +346,43 @@ map.on('load', () => {{
       ${{p.owner ? `<div class="field"><strong>Regis owner:</strong> ${{p.owner}}</div>` : ''}}
       ${{p.note ? `<div class="note">${{p.note}}</div>` : ''}}
     `;
-    new mapboxgl.Popup({{ closeButton: true, maxWidth: '300px' }})
-      .setLngLat(f.geometry.coordinates)
-      .setHTML(html)
-      .addTo(map);
-  }});
+  }};
 
-  map.on('mouseenter', 'dcs-circles', () => {{ map.getCanvas().style.cursor = 'pointer'; }});
-  map.on('mouseleave', 'dcs-circles', () => {{ map.getCanvas().style.cursor = ''; }});
+  const clickHandler = (e) => {{
+    const f = e.features[0];
+    new mapboxgl.Popup({{ closeButton: true, maxWidth: '320px' }})
+      .setLngLat(f.geometry.coordinates)
+      .setHTML(popupFor(f))
+      .addTo(map);
+  }};
+
+  map.on('click', 'dcs-circles', clickHandler);
+  map.on('click', 'projects-circles', clickHandler);
+  ['dcs-circles', 'projects-circles'].forEach(id => {{
+    map.on('mouseenter', id, () => {{ map.getCanvas().style.cursor = 'pointer'; }});
+    map.on('mouseleave', id, () => {{ map.getCanvas().style.cursor = ''; }});
+  }});
 
   const applyFilter = () => {{
     const market = document.getElementById('marketFilter').value;
     const status = document.getElementById('statusFilter').value;
-    const conds = ['all'];
+    const conds = ['all', ['==', ['get', 'layer'], 'dc']];
     if (market) conds.push(['==', ['get', 'market'], market]);
     if (status) conds.push(['==', ['get', 'status_key'], status]);
-    map.setFilter('dcs-circles', conds.length > 1 ? conds : null);
+    map.setFilter('dcs-circles', conds);
   }};
   document.getElementById('marketFilter').addEventListener('change', applyFilter);
   document.getElementById('statusFilter').addEventListener('change', applyFilter);
+
+  const applyLayerToggle = () => {{
+    const dcVis = document.getElementById('toggleDCs').checked ? 'visible' : 'none';
+    const projVis = document.getElementById('toggleProjects').checked ? 'visible' : 'none';
+    map.setLayoutProperty('dcs-circles', 'visibility', dcVis);
+    map.setLayoutProperty('projects-circles', 'visibility', projVis);
+    map.setLayoutProperty('projects-halo', 'visibility', projVis);
+  }};
+  document.getElementById('toggleDCs').addEventListener('change', applyLayerToggle);
+  document.getElementById('toggleProjects').addEventListener('change', applyLayerToggle);
 }});
 </script>
 </body>
