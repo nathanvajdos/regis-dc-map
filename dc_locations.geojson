@@ -697,9 +697,120 @@
         "developer": "REGIS",
         "name": "Project Sumlin",
         "aka": "Laredo",
-        "substation": "AEP Laredo",
+        "county": "Webb",
+        "utility": "AEP Texas",
         "stage": "Active development",
-        "note": "Laredo, TX (Webb County). South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Confirmed from email thread 'Project Sumlin \u2014 Laredo Outreach'. Coordinate approximate \u2014 Webb County site centroid.",
+        "note": "Laredo, TX. South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Active Projects SharePoint folder: Sumlin (Laredo). City centroid \u2014 precise KMZ boundary in SharePoint.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.958196,
+          31.915673
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Price",
+        "aka": "Hillsboro",
+        "county": "Hill",
+        "utility": "Oncor",
+        "stage": "POI analysis done",
+        "note": "Hill County, TX (project-named 'Hillsboro'). 1.5 GW BTM Gas + Grid target. Sam Switch POI delivered Apr 10 2026 by Donald. KMZ site boundary on file. EXACT coordinate from Regis POI email.",
+        "precise": true,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.4689,
+          32.0954
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Carswell",
+        "aka": "Corsicana",
+        "county": "Navarro",
+        "utility": "Oncor",
+        "stage": "Active development",
+        "note": "Corsicana, TX (Navarro County) \u2014 NOT Fort Worth Carswell AFB. Active Projects SharePoint folder: Carswell (Corsicana). City centroid \u2014 precise KMZ boundary in SharePoint.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.2697,
+          29.6321
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Elko",
+        "aka": "Schertz",
+        "county": "Guadalupe",
+        "utility": "CPS Energy",
+        "stage": "Active development",
+        "note": "Schertz, TX (Guadalupe County, northeast San Antonio) \u2014 NOT West TX. Active Projects SharePoint folder: Elko (Schertz). City centroid \u2014 precise KMZ boundary in SharePoint.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.3003,
+          32.7311
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Fisher",
+        "aka": "Clear Fork",
+        "county": "Fisher",
+        "utility": "Oncor / AEP",
+        "stage": "Active development",
+        "note": "Fisher County, TX. Substation: Clear Fork. Active Projects SharePoint folder: Fisher (Clear Fork). County centroid \u2014 precise KMZ boundary in SharePoint.",
+        "precise": false,
+        "color": "#cf222e"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.3698,
+          29.7604
+        ]
+      },
+      "properties": {
+        "layer": "project",
+        "developer": "REGIS",
+        "name": "Project Kubiak",
+        "aka": "Houston",
+        "county": "Harris",
+        "utility": "CenterPoint",
+        "stage": "Active development",
+        "note": "Houston, TX (Harris County). Active Projects SharePoint folder: Kubiak (Houston). City centroid \u2014 precise KMZ boundary in SharePoint.",
         "precise": false,
         "color": "#cf222e"
       }
@@ -718,93 +829,10 @@
         "developer": "REGIS",
         "name": "Project Oklaunion",
         "aka": "Vernon",
-        "substation": "AEP Oklaunion",
-        "stage": "Diligence",
-        "note": "Wilbarger County, TX (zip 76384). Google $1B+ co-located DC announced Feb 2026 validates AEP interconnection. Parcels: HOLTON FAMILY PARTNERSHIP LP, RAMSEY RICHARD & RHONDA per DC Land Sheet. Coordinate approximate \u2014 Vernon area centroid.",
-        "precise": false,
-        "color": "#cf222e"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -96.958196,
-          31.915673
-        ]
-      },
-      "properties": {
-        "layer": "project",
-        "developer": "REGIS",
-        "name": "Project Price",
-        "aka": "Carswell",
-        "substation": "Sam Switch",
-        "stage": "POI analysis",
-        "note": "Navarro County, TX. POI analysis for Sam Switch (Oncor) delivered by Donald Apr 10 2026. KMZ site boundary on file. EXACT coordinate from Regis POI email.",
-        "precise": true,
-        "color": "#cf222e"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.4428,
-          32.7708
-        ]
-      },
-      "properties": {
-        "layer": "project",
-        "developer": "REGIS",
-        "name": "Project Carswell",
-        "aka": "Fort Worth",
-        "substation": "TBD",
-        "stage": "Early",
-        "note": "Fort Worth area. Named after Carswell AFB/JRB. Site details pending from Donald. Coordinate approximate.",
-        "precise": false,
-        "color": "#cf222e"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -100.3003,
-          32.75
-        ]
-      },
-      "properties": {
-        "layer": "project",
-        "developer": "REGIS",
-        "name": "Project Fisher",
-        "aka": "Clear Fork",
-        "substation": "Clear Fork",
-        "stage": "Early",
-        "note": "Fisher County, TX. Substation: Clear Fork. Per DC Land Sheet. Coordinate approximate \u2014 county centroid.",
-        "precise": false,
-        "color": "#cf222e"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -100.0,
-          32.75
-        ]
-      },
-      "properties": {
-        "layer": "project",
-        "developer": "REGIS",
-        "name": "Project Elko",
-        "aka": "Tri County",
-        "substation": "Tri County",
-        "stage": "Early",
-        "note": "Tri County substation area. Exact location TBD \u2014 Regis internal reference. Coordinate approximate.",
+        "county": "Wilbarger",
+        "utility": "AEP",
+        "stage": "Early diligence",
+        "note": "Wilbarger County, TX (zip 76384). Early diligence \u2014 NOT yet in Active Projects SharePoint folder. Google $1B+ co-located DC (Feb 2026) validates AEP interconnection. Per 'Initial Diligence Summary: Project Oklaunion' email. County centroid.",
         "precise": false,
         "color": "#cf222e"
       }

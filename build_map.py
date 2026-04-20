@@ -56,17 +56,24 @@ DCS = [
 ]
 
 # ============================================================================
-# REGIS PROJECT SITES (from DC Land Sheet + email coordinates)
+# REGIS PROJECT SITES (from SharePoint Active Projects folder + email coords)
 # ============================================================================
-# Coordinates are best-known from internal Regis sources (email threads, POI analyses).
-# Ones marked "approximate" are county-centered pending precise site control data.
+# Active Projects per SharePoint (bizdev/08_Data Center Development/03_DC Projects by Utility/Active Projects):
+#   Sumlin (Laredo), Price (Hillsboro), Carswell (Corsicana), Elko (Schertz),
+#   Fisher (Clear Fork), Kubiak (Houston).
+# Plus Oklaunion (Wilbarger) — in early diligence per Regis-internal POI email
+# (not yet in Active Projects SharePoint folder).
+#
+# Coords are approximate city centroids unless flagged "precise".
+# KMZ boundaries live in SharePoint project folders; pull precise coords later.
 PROJECTS = [
-    {"name": "Sumlin",    "aka": "Laredo",           "substation": "AEP Laredo",  "lon": -99.5075, "lat": 27.5306, "stage": "Active development", "note": "Laredo, TX (Webb County). South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Confirmed from email thread 'Project Sumlin — Laredo Outreach'. Coordinate approximate — Webb County site centroid.", "precise": False},
-    {"name": "Oklaunion", "aka": "Vernon",           "substation": "AEP Oklaunion","lon": -99.1428, "lat": 34.1223, "stage": "Diligence",           "note": "Wilbarger County, TX (zip 76384). Google $1B+ co-located DC announced Feb 2026 validates AEP interconnection. Parcels: HOLTON FAMILY PARTNERSHIP LP, RAMSEY RICHARD & RHONDA per DC Land Sheet. Coordinate approximate — Vernon area centroid.", "precise": False},
-    {"name": "Price",     "aka": "Carswell",         "substation": "Sam Switch",  "lon": -96.958196, "lat": 31.915673, "stage": "POI analysis",      "note": "Navarro County, TX. POI analysis for Sam Switch (Oncor) delivered by Donald Apr 10 2026. KMZ site boundary on file. EXACT coordinate from Regis POI email.", "precise": True},
-    {"name": "Carswell",  "aka": "Fort Worth",       "substation": "TBD",         "lon": -97.4428, "lat": 32.7708, "stage": "Early",               "note": "Fort Worth area. Named after Carswell AFB/JRB. Site details pending from Donald. Coordinate approximate.", "precise": False},
-    {"name": "Fisher",    "aka": "Clear Fork",       "substation": "Clear Fork",  "lon": -100.3003, "lat": 32.7500, "stage": "Early",               "note": "Fisher County, TX. Substation: Clear Fork. Per DC Land Sheet. Coordinate approximate — county centroid.", "precise": False},
-    {"name": "Elko",      "aka": "Tri County",       "substation": "Tri County",  "lon": -100.0000, "lat": 32.7500, "stage": "Early",               "note": "Tri County substation area. Exact location TBD — Regis internal reference. Coordinate approximate.", "precise": False},
+    {"name": "Sumlin",    "aka": "Laredo",     "county": "Webb",     "utility": "AEP Texas",   "lon": -99.5075,   "lat": 27.5306,   "stage": "Active development",   "note": "Laredo, TX. South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Active Projects SharePoint folder: Sumlin (Laredo). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
+    {"name": "Price",     "aka": "Hillsboro",  "county": "Hill",     "utility": "Oncor",       "lon": -96.958196, "lat": 31.915673, "stage": "POI analysis done",    "note": "Hill County, TX (project-named 'Hillsboro'). 1.5 GW BTM Gas + Grid target. Sam Switch POI delivered Apr 10 2026 by Donald. KMZ site boundary on file. EXACT coordinate from Regis POI email.", "precise": True},
+    {"name": "Carswell",  "aka": "Corsicana",  "county": "Navarro",  "utility": "Oncor",       "lon": -96.4689,   "lat": 32.0954,   "stage": "Active development",   "note": "Corsicana, TX (Navarro County) — NOT Fort Worth Carswell AFB. Active Projects SharePoint folder: Carswell (Corsicana). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
+    {"name": "Elko",      "aka": "Schertz",    "county": "Guadalupe","utility": "CPS Energy",  "lon": -98.2697,   "lat": 29.6321,   "stage": "Active development",   "note": "Schertz, TX (Guadalupe County, northeast San Antonio) — NOT West TX. Active Projects SharePoint folder: Elko (Schertz). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
+    {"name": "Fisher",    "aka": "Clear Fork", "county": "Fisher",   "utility": "Oncor / AEP", "lon": -100.3003,  "lat": 32.7311,   "stage": "Active development",   "note": "Fisher County, TX. Substation: Clear Fork. Active Projects SharePoint folder: Fisher (Clear Fork). County centroid — precise KMZ boundary in SharePoint.", "precise": False},
+    {"name": "Kubiak",    "aka": "Houston",    "county": "Harris",   "utility": "CenterPoint", "lon": -95.3698,   "lat": 29.7604,   "stage": "Active development",   "note": "Houston, TX (Harris County). Active Projects SharePoint folder: Kubiak (Houston). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
+    {"name": "Oklaunion", "aka": "Vernon",     "county": "Wilbarger","utility": "AEP",         "lon": -99.1428,   "lat": 34.1223,   "stage": "Early diligence",      "note": "Wilbarger County, TX (zip 76384). Early diligence — NOT yet in Active Projects SharePoint folder. Google $1B+ co-located DC (Feb 2026) validates AEP interconnection. Per 'Initial Diligence Summary: Project Oklaunion' email. County centroid.", "precise": False},
 ]
 
 STATUS_COLORS = {
@@ -143,7 +150,7 @@ def main():
     project_features = []
     print(f"\nAdding {len(PROJECTS)} Regis project sites...")
     for p in PROJECTS:
-        print(f"  * Project {p['name']:<12} ({'EXACT' if p['precise'] else 'approx'}) -> {p['lat']:.4f}, {p['lon']:.4f}")
+        print(f"  * Project {p['name']:<10} ({'EXACT' if p['precise'] else 'approx'}) {p['aka']:<12} -> {p['lat']:.4f}, {p['lon']:.4f}")
         project_features.append({
             "type": "Feature",
             "geometry": {"type": "Point", "coordinates": [p["lon"], p["lat"]]},
@@ -152,7 +159,8 @@ def main():
                 "developer": "REGIS",
                 "name": f"Project {p['name']}",
                 "aka": p["aka"],
-                "substation": p["substation"],
+                "county": p["county"],
+                "utility": p["utility"],
                 "stage": p["stage"],
                 "note": p["note"],
                 "precise": p["precise"],
@@ -331,9 +339,9 @@ map.on('load', () => {{
       return `
         <div class="regis-badge">REGIS PROJECT</div>
         <h3 style="margin-top:8px;">${{p.name}}</h3>
-        <div class="dev">${{p.aka}} · ${{p.stage}}</div>
-        <div class="field"><strong>Substation:</strong> ${{p.substation}}</div>
-        <div class="field"><strong>Accuracy:</strong> ${{p.precise === 'true' ? 'exact coords' : 'approximate — county/area centroid'}}</div>
+        <div class="dev">${{p.aka}} (${{p.county}} County) · ${{p.stage}}</div>
+        <div class="field"><strong>Utility:</strong> ${{p.utility}}</div>
+        <div class="field"><strong>Accuracy:</strong> ${{p.precise === 'true' ? 'exact coords (from POI email)' : 'approximate — city/county centroid; precise KMZ in SharePoint'}}</div>
         ${{p.note ? `<div class="note">${{p.note}}</div>` : ''}}
       `;
     }}
