@@ -221,6 +221,39 @@ def generate_html(geojson, n_dcs, n_projects):
   .mapboxgl-popup-content .regis-badge {{ background: #cf222e; color: #fff; padding: 2px 7px; border-radius: 3px; font-size: 10px; font-weight: 600; letter-spacing: 0.4px; }}
   .footer {{ position: absolute; bottom: 8px; left: 14px; background: #fff; padding: 6px 10px; border-radius: 4px; font-size: 11px; color: #57606a; box-shadow: 0 1px 4px rgba(0,0,0,0.1); z-index: 2; }}
   .footer a {{ color: #0969da; text-decoration: none; }}
+  .table-toggle {{ background: #0969da; color: #fff; border: 0; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; width: 100%; margin-top: 8px; }}
+  .table-toggle:hover {{ background: #0857b8; }}
+  #tablePanel {{
+    position: absolute; top: 0; right: 0; bottom: 0; width: 540px; max-width: 90vw;
+    background: #fff; box-shadow: -4px 0 16px rgba(0,0,0,0.15); z-index: 3;
+    transform: translateX(100%); transition: transform 0.25s ease-out;
+    display: flex; flex-direction: column; overflow: hidden;
+  }}
+  #tablePanel.open {{ transform: translateX(0); }}
+  .tp-header {{ padding: 12px 16px; border-bottom: 1px solid #d0d7de; display: flex; align-items: center; justify-content: space-between; background: #f6f8fa; }}
+  .tp-header h2 {{ margin: 0; font-size: 14px; color: #0d1117; }}
+  .tp-close {{ background: transparent; border: 0; font-size: 20px; cursor: pointer; color: #57606a; padding: 0 6px; }}
+  .tp-tabs {{ display: flex; border-bottom: 1px solid #d0d7de; }}
+  .tp-tab {{ flex: 1; padding: 10px 14px; border: 0; background: transparent; cursor: pointer; font-size: 12px; font-weight: 600; color: #57606a; border-bottom: 2px solid transparent; }}
+  .tp-tab.active {{ color: #0969da; border-bottom-color: #0969da; background: #fff; }}
+  .tp-search {{ padding: 8px 12px; border-bottom: 1px solid #eaeef2; }}
+  .tp-search input {{ width: 100%; padding: 6px 10px; border: 1px solid #d0d7de; border-radius: 4px; font-size: 12px; box-sizing: border-box; }}
+  .tp-body {{ flex: 1; overflow-y: auto; padding: 0; }}
+  .tp-body table {{ width: 100%; border-collapse: collapse; font-size: 11px; }}
+  .tp-body thead {{ position: sticky; top: 0; background: #f6f8fa; box-shadow: 0 1px 0 #d0d7de; z-index: 1; }}
+  .tp-body th {{ text-align: left; padding: 8px 10px; font-weight: 600; color: #57606a; border-bottom: 1px solid #d0d7de; cursor: pointer; user-select: none; white-space: nowrap; }}
+  .tp-body th:hover {{ background: #eaeef2; }}
+  .tp-body th.sort-asc::after {{ content: ' ▲'; font-size: 9px; color: #0969da; }}
+  .tp-body th.sort-desc::after {{ content: ' ▼'; font-size: 9px; color: #0969da; }}
+  .tp-body td {{ padding: 7px 10px; border-bottom: 1px solid #eaeef2; color: #24292f; vertical-align: top; }}
+  .tp-body tr:hover td {{ background: #f6f8fa; }}
+  .tp-body tr.regis td {{ background: #fff5f5; }}
+  .tp-body tr.regis:hover td {{ background: #ffecec; }}
+  .tp-body .status-dot {{ display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }}
+  .tp-body .mw-bar {{ display: inline-block; height: 4px; background: #0969da; border-radius: 2px; vertical-align: middle; margin-right: 6px; min-width: 2px; }}
+  .tp-body tr.regis .mw-bar {{ background: #cf222e; }}
+  .tp-body .flyto {{ color: #0969da; cursor: pointer; text-decoration: none; font-size: 10px; margin-left: 6px; }}
+  .tp-footer {{ padding: 6px 12px; border-top: 1px solid #d0d7de; font-size: 10px; color: #57606a; background: #f6f8fa; }}
 </style>
 </head>
 <body>
@@ -267,7 +300,26 @@ def generate_html(geojson, n_dcs, n_projects):
       <label><input type="checkbox" id="toggleProjects" checked>Regis projects</label>
     </div>
   </div>
+  <button class="table-toggle" id="openTable">📋 Open Summary Table</button>
+  <p style="font-size: 10px; color: #8b949e; margin-top: 8px;">Pin size = MW capacity (area ∝ MW).</p>
 </div>
+
+<div id="tablePanel">
+  <div class="tp-header">
+    <h2>Summary Tables</h2>
+    <button class="tp-close" id="closeTable">×</button>
+  </div>
+  <div class="tp-tabs">
+    <button class="tp-tab active" data-tab="regis">Regis Projects (<span id="regisCount">0</span>)</button>
+    <button class="tp-tab" data-tab="dcs">Competitor DCs (<span id="dcCount">0</span>)</button>
+  </div>
+  <div class="tp-search">
+    <input type="text" id="tableSearch" placeholder="Search by name, developer, market, county…">
+  </div>
+  <div class="tp-body" id="tableBody"></div>
+  <div class="tp-footer" id="tableFooter">Click any row to zoom to that pin. Click a column header to sort.</div>
+</div>
+
 <div class="footer">
   Source: <a href="https://app.smartsheet.com/sheets/MfQHrM892gvWm38j44Vh3C5R2X3xxjxvC6G89vQ1" target="_blank">Smartsheet DC Locations</a>
   · Regis project sites from DC Land Sheet + POI emails
@@ -291,14 +343,34 @@ map.addControl(new mapboxgl.ScaleControl({{ maxWidth: 120, unit: 'imperial' }}),
 map.on('load', () => {{
   map.addSource('points', {{ type: 'geojson', data: GEOJSON }});
 
-  // DC layer (circles)
+  // ----- MW-based radius formulas -----
+  // Radius scales with sqrt(MW) since area ∝ MW (area-proportional sizing).
+  // Defaults are used when MW is missing/0 so every pin is visible.
+
+  // DC layer — circle area proportional to MW capacity
   map.addLayer({{
     id: 'dcs-circles',
     type: 'circle',
     source: 'points',
     filter: ['==', ['get', 'layer'], 'dc'],
     paint: {{
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 5, 12, 10, 16, 18],
+      'circle-radius': [
+        'interpolate', ['linear'], ['zoom'],
+        4, [
+          'case',
+          ['>', ['to-number', ['get', 'mw']], 0],
+          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
+            0, 3, 50, 4, 200, 5, 500, 7, 1000, 9, 1500, 11, 3000, 14],
+          4
+        ],
+        10, [
+          'case',
+          ['>', ['to-number', ['get', 'mw']], 0],
+          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
+            0, 5, 50, 7, 200, 10, 500, 14, 1000, 19, 1500, 23, 3000, 30],
+          7
+        ]
+      ],
       'circle-color': ['get', 'color'],
       'circle-stroke-width': 2,
       'circle-stroke-color': '#ffffff',
@@ -306,14 +378,30 @@ map.on('load', () => {{
     }},
   }});
 
-  // Regis project layer (larger red stars via circles with outer halo)
+  // Regis project layer — larger base size, MW-scaled, with halo
   map.addLayer({{
     id: 'projects-halo',
     type: 'circle',
     source: 'points',
     filter: ['==', ['get', 'layer'], 'project'],
     paint: {{
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 12, 12, 22, 16, 34],
+      'circle-radius': [
+        'interpolate', ['linear'], ['zoom'],
+        4, [
+          'case',
+          ['>', ['to-number', ['get', 'mw']], 0],
+          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
+            0, 10, 500, 15, 1500, 22, 3000, 30],
+          12
+        ],
+        10, [
+          'case',
+          ['>', ['to-number', ['get', 'mw']], 0],
+          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
+            0, 20, 500, 28, 1500, 40, 3000, 55],
+          22
+        ]
+      ],
       'circle-color': '#cf222e',
       'circle-opacity': 0.18,
       'circle-stroke-width': 0,
@@ -325,7 +413,23 @@ map.on('load', () => {{
     source: 'points',
     filter: ['==', ['get', 'layer'], 'project'],
     paint: {{
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, 7, 12, 13, 16, 22],
+      'circle-radius': [
+        'interpolate', ['linear'], ['zoom'],
+        4, [
+          'case',
+          ['>', ['to-number', ['get', 'mw']], 0],
+          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
+            0, 6, 500, 9, 1500, 13, 3000, 18],
+          7
+        ],
+        10, [
+          'case',
+          ['>', ['to-number', ['get', 'mw']], 0],
+          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
+            0, 12, 500, 17, 1500, 25, 3000, 34],
+          13
+        ]
+      ],
       'circle-color': '#cf222e',
       'circle-stroke-width': 3,
       'circle-stroke-color': '#ffffff',
@@ -392,6 +496,167 @@ map.on('load', () => {{
   }};
   document.getElementById('toggleDCs').addEventListener('change', applyLayerToggle);
   document.getElementById('toggleProjects').addEventListener('change', applyLayerToggle);
+
+  // ============================================================
+  // Summary Table Panel
+  // ============================================================
+  const panel = document.getElementById('tablePanel');
+  const tableBody = document.getElementById('tableBody');
+  const searchBox = document.getElementById('tableSearch');
+  let activeTab = 'regis';
+  let sortCol = 'mw';
+  let sortDir = 'desc';
+
+  const features = GEOJSON.features;
+  const regisFeatures = features.filter(f => f.properties.layer === 'project');
+  const dcFeatures = features.filter(f => f.properties.layer === 'dc');
+  document.getElementById('regisCount').textContent = regisFeatures.length;
+  document.getElementById('dcCount').textContent = dcFeatures.length;
+
+  const regisCols = [
+    {{ key: 'name',     label: 'Project',     type: 'text'   }},
+    {{ key: 'aka',      label: 'Location',    type: 'text'   }},
+    {{ key: 'county',   label: 'County',      type: 'text'   }},
+    {{ key: 'utility',  label: 'Utility',     type: 'text'   }},
+    {{ key: 'mw',       label: 'MW',          type: 'num'    }},
+    {{ key: 'stage',    label: 'Stage',       type: 'text'   }},
+    {{ key: 'precise',  label: 'Coord',       type: 'bool'   }},
+  ];
+  const dcCols = [
+    {{ key: 'developer', label: 'Developer',  type: 'text'   }},
+    {{ key: 'name',      label: 'DC Name',    type: 'text'   }},
+    {{ key: 'market',    label: 'Market',     type: 'text'   }},
+    {{ key: 'mw',        label: 'MW',         type: 'num'    }},
+    {{ key: 'status',    label: 'Status',     type: 'text'   }},
+    {{ key: 'owner',     label: 'Regis Owner',type: 'text'   }},
+  ];
+
+  const getVal = (f, key) => {{
+    const v = f.properties[key];
+    return v === undefined || v === null ? '' : v;
+  }};
+
+  const renderTable = () => {{
+    const cols = activeTab === 'regis' ? regisCols : dcCols;
+    const data = activeTab === 'regis' ? [...regisFeatures] : [...dcFeatures];
+    const searchTerm = (searchBox.value || '').toLowerCase().trim();
+
+    const filtered = searchTerm
+      ? data.filter(f => {{
+          const props = f.properties;
+          return Object.values(props).some(v => String(v).toLowerCase().includes(searchTerm));
+        }})
+      : data;
+
+    filtered.sort((a, b) => {{
+      let av = getVal(a, sortCol);
+      let bv = getVal(b, sortCol);
+      const col = cols.find(c => c.key === sortCol);
+      if (col && col.type === 'num') {{
+        av = parseFloat(av) || 0; bv = parseFloat(bv) || 0;
+      }} else {{
+        av = String(av).toLowerCase(); bv = String(bv).toLowerCase();
+      }}
+      if (av < bv) return sortDir === 'asc' ? -1 : 1;
+      if (av > bv) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    }});
+
+    const maxMW = Math.max(...data.map(f => parseFloat(getVal(f, 'mw')) || 0), 1);
+
+    let html = '<table><thead><tr>';
+    cols.forEach(c => {{
+      const cls = c.key === sortCol ? `sort-${{sortDir}}` : '';
+      html += `<th class="${{cls}}" data-col="${{c.key}}">${{c.label}}</th>`;
+    }});
+    html += '</tr></thead><tbody>';
+
+    if (filtered.length === 0) {{
+      html += `<tr><td colspan="${{cols.length}}" style="text-align:center; padding: 20px; color:#8b949e;">No results</td></tr>`;
+    }} else {{
+      filtered.forEach((f, idx) => {{
+        const p = f.properties;
+        const rowClass = activeTab === 'regis' ? 'regis' : '';
+        const dataId = `${{f.geometry.coordinates[0]}},${{f.geometry.coordinates[1]}}`;
+        html += `<tr class="${{rowClass}}" data-coords="${{dataId}}" data-layer="${{activeTab}}" data-idx="${{idx}}">`;
+        cols.forEach(c => {{
+          let v = getVal(f, c.key);
+          if (c.key === 'mw' && v) {{
+            const mwNum = parseFloat(v) || 0;
+            const pct = Math.min(100, (mwNum / maxMW) * 100);
+            v = `<span class="mw-bar" style="width: ${{pct * 0.6}}px;"></span>${{mwNum.toLocaleString()}}`;
+          }} else if (c.key === 'status' && v) {{
+            v = `<span class="status-dot" style="background:${{p.color}}"></span>${{v}}`;
+          }} else if (c.key === 'precise') {{
+            v = v === true || v === 'true' ? '✅ exact' : '~ approx';
+          }}
+          html += `<td>${{v || '—'}}</td>`;
+        }});
+        html += '</tr>';
+      }});
+    }}
+    html += '</tbody></table>';
+    tableBody.innerHTML = html;
+
+    // Header click to sort
+    tableBody.querySelectorAll('th').forEach(th => {{
+      th.addEventListener('click', () => {{
+        const col = th.dataset.col;
+        if (sortCol === col) {{
+          sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+        }} else {{
+          sortCol = col;
+          sortDir = 'desc';
+        }}
+        renderTable();
+      }});
+    }});
+
+    // Row click to fly-to
+    tableBody.querySelectorAll('tbody tr').forEach(tr => {{
+      tr.addEventListener('click', () => {{
+        const coords = tr.dataset.coords;
+        const idx = parseInt(tr.dataset.idx, 10);
+        const layer = tr.dataset.layer;
+        const list = layer === 'regis' ? regisFeatures : dcFeatures;
+        const fSrc = list[idx] || list.find(ff => `${{ff.geometry.coordinates[0]}},${{ff.geometry.coordinates[1]}}` === coords);
+        if (!fSrc) return;
+        map.flyTo({{ center: fSrc.geometry.coordinates, zoom: 11, duration: 1200 }});
+        setTimeout(() => {{
+          new mapboxgl.Popup({{ closeButton: true, maxWidth: '320px' }})
+            .setLngLat(fSrc.geometry.coordinates)
+            .setHTML(popupFor(fSrc))
+            .addTo(map);
+        }}, 1250);
+      }});
+    }});
+
+    document.getElementById('tableFooter').textContent =
+      `Showing ${{filtered.length}} of ${{data.length}} · sorted by ${{sortCol}} ${{sortDir}} · click row to fly to pin`;
+  }};
+
+  // Default: sort Regis by MW desc initially
+  sortCol = 'mw'; sortDir = 'desc';
+  renderTable();
+
+  document.querySelectorAll('.tp-tab').forEach(tab => {{
+    tab.addEventListener('click', () => {{
+      document.querySelectorAll('.tp-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeTab = tab.dataset.tab;
+      sortCol = 'mw'; sortDir = 'desc';
+      renderTable();
+    }});
+  }});
+
+  searchBox.addEventListener('input', renderTable);
+
+  document.getElementById('openTable').addEventListener('click', () => {{
+    panel.classList.add('open');
+  }});
+  document.getElementById('closeTable').addEventListener('click', () => {{
+    panel.classList.remove('open');
+  }});
 }});
 </script>
 </body>
