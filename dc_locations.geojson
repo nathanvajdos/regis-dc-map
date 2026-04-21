@@ -734,8 +734,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -96.4689,
-          32.0954
+          -96.499874,
+          31.963114
         ]
       },
       "properties": {
@@ -744,11 +744,11 @@
         "name": "Project Carswell",
         "aka": "Corsicana",
         "county": "Navarro",
-        "utility": "Oncor",
+        "utility": "Oncor (dual w/ Navarro EC)",
         "stage": "Active development",
-        "mw": "",
-        "note": "Corsicana, TX (Navarro County) \u2014 NOT Fort Worth/Carswell AFB. /Carswell (Corsicana)/10 - KMZ & GIS/ folder exists but was empty on last read \u2014 master KMZ may live elsewhere or not yet created.",
-        "precise": false,
+        "mw": "1500",
+        "note": "7 miles SW of Corsicana, TX (Navarro County) \u2014 NOT Fort Worth/Carswell AFB. Substation S+W of Corsicana, adjacent to Riot Blockchain facility. 622 ac pursuing LOI + 100+ ac expansion w/ multiple landowners. Oncor 345kV + Atmos 10.75\" pipeline. 1.5 GW target (300 MW BTM gas by 2028, 250 MW grid expanding). EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.",
+        "precise": true,
         "color": "#cf222e"
       }
     },
@@ -769,8 +769,8 @@
         "county": "Guadalupe",
         "utility": "CPS Energy",
         "stage": "INFERENCE project",
-        "mw": "",
-        "note": "Schertz, TX (Guadalupe County, NE San Antonio). Flagged INFERENCE project (not full data center) per Regis Fee Breakdown doc. /Elko (Schertz)/10 - KMZ & GIS/ folder was empty on last read.",
+        "mw": "250",
+        "note": "Tri-County substation, Schertz, TX (Guadalupe County, NE San Antonio). Flagged INFERENCE project (not full data center) per Regis Fee Breakdown. City centroid approximate \u2014 Tri-County substation precise coord still needed (pending Donald). Planned 250 MW.",
         "precise": false,
         "color": "#cf222e"
       }
@@ -780,21 +780,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -100.3003,
-          32.7311
+          -97.726184,
+          29.859999
         ]
       },
       "properties": {
         "layer": "project",
         "developer": "REGIS",
         "name": "Project Fisher",
-        "aka": "Clear Fork",
-        "county": "Fisher",
-        "utility": "Oncor / AEP",
+        "aka": "Lockhart",
+        "county": "Caldwell",
+        "utility": "BBEC",
         "stage": "Active development",
-        "mw": "",
-        "note": "Fisher County, TX. Substation: Clear Fork. Master KMZ: /Fisher (Clear Fork)/11 - KMZ & GIS/Project Fisher_Master_2026-02-04.kmz. County centroid.",
-        "precise": false,
+        "mw": "1500",
+        "note": "1 mile SW of Lockhart, TX (Caldwell County \u2014 NOT Fisher County; DC Land Sheet was stale). Served by BBEC (Bluebonnet EC). 327 ac LOI in negotiation + 579 ac expansion w/ 2 landowners. Kinder Morgan 42\" + Energy Transfer 20\" gas pipelines adjacent. LCRA 345kV. 1.5 GW target (287 MW BTM gas 2028, 40-74 MW grid expanding). 25 mi from Austin Bergstrom. EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.",
+        "precise": true,
         "color": "#cf222e"
       }
     },
