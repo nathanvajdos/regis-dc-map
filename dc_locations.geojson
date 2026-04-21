@@ -688,8 +688,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -99.5075,
-          27.5306
+          -99.275759,
+          27.578866
         ]
       },
       "properties": {
@@ -699,10 +699,10 @@
         "aka": "Laredo",
         "county": "Webb",
         "utility": "AEP Texas",
-        "stage": "Active development",
-        "mw": "",
-        "note": "Laredo, TX. South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. SharePoint folder: /Active Projects/Sumlin (Laredo)/11 - KMZ & GIS/Project Sumlin_Master_2026.04.08.kmz.",
-        "precise": false,
+        "stage": "Executed LOA: 300 MW N. Laredo Switch + 500 MW Lobo pending",
+        "mw": "800",
+        "note": "Lobo Substation / Project Site on FM 255, ~5 mi north of Laredo, Webb County. Executed AEP LOA for 300 MW via North Laredo Switch (Q1 2029 / Q2 2030 ISD). Lobo 500 MW secondary request pending (Apr 17 2026 memo). Hachar Family Trust: 688 ac primary + 1,198 ac expansion = 1,886 ac. EXACT coordinate from Lobo 500 MW memo.",
+        "precise": true,
         "color": "#cf222e"
       }
     },
@@ -814,9 +814,9 @@
         "aka": "Houston",
         "county": "Harris",
         "utility": "CenterPoint 345kV",
-        "stage": "Active development",
+        "stage": "Pre-site control (no land yet)",
         "mw": "1200",
-        "note": "Houston, TX (Harris County). 1,200 MW target on CenterPoint 345kV per Regis assessment. /Kubiak (Houston)/11 - KMZ & GIS/5 - Kubiak (Houston).kmz.",
+        "note": "Houston, TX (Harris County). 1,200 MW target on CenterPoint 345kV. Per Apr 11 2026 assessment: NO lead, NO land, NO model clarity (32% probability of success). Strong macro fundamentals (Houston gas liquidity, labor, fiber, water) but worst execution status. Houston centroid used as placeholder pin until land is identified.",
         "precise": false,
         "color": "#cf222e"
       }
