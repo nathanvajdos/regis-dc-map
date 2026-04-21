@@ -700,7 +700,8 @@
         "county": "Webb",
         "utility": "AEP Texas",
         "stage": "Active development",
-        "note": "Laredo, TX. South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Active Projects SharePoint folder: Sumlin (Laredo). City centroid \u2014 precise KMZ boundary in SharePoint.",
+        "mw": "",
+        "note": "Laredo, TX. South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. SharePoint folder: /Active Projects/Sumlin (Laredo)/11 - KMZ & GIS/Project Sumlin_Master_2026.04.08.kmz.",
         "precise": false,
         "color": "#cf222e"
       }
@@ -722,7 +723,8 @@
         "county": "Hill",
         "utility": "Oncor",
         "stage": "POI analysis done",
-        "note": "Hill County, TX (project-named 'Hillsboro'). 1.5 GW BTM Gas + Grid target. Sam Switch POI delivered Apr 10 2026 by Donald. KMZ site boundary on file. EXACT coordinate from Regis POI email.",
+        "mw": "1500",
+        "note": "Hill County, TX. 1.5 GW BTM Gas + Grid target. Sam Switch POI delivered Apr 10 2026 by Donald. EXACT coordinate from Regis POI email. Master KMZ: /Price (Hillsboro)/10 - KMZ & GIS/Price_Master_KMZ_2026-04-09_agent.kmz.",
         "precise": true,
         "color": "#cf222e"
       }
@@ -744,7 +746,8 @@
         "county": "Navarro",
         "utility": "Oncor",
         "stage": "Active development",
-        "note": "Corsicana, TX (Navarro County) \u2014 NOT Fort Worth Carswell AFB. Active Projects SharePoint folder: Carswell (Corsicana). City centroid \u2014 precise KMZ boundary in SharePoint.",
+        "mw": "",
+        "note": "Corsicana, TX (Navarro County) \u2014 NOT Fort Worth/Carswell AFB. /Carswell (Corsicana)/10 - KMZ & GIS/ folder exists but was empty on last read \u2014 master KMZ may live elsewhere or not yet created.",
         "precise": false,
         "color": "#cf222e"
       }
@@ -765,8 +768,9 @@
         "aka": "Schertz",
         "county": "Guadalupe",
         "utility": "CPS Energy",
-        "stage": "Active development",
-        "note": "Schertz, TX (Guadalupe County, northeast San Antonio) \u2014 NOT West TX. Active Projects SharePoint folder: Elko (Schertz). City centroid \u2014 precise KMZ boundary in SharePoint.",
+        "stage": "INFERENCE project",
+        "mw": "",
+        "note": "Schertz, TX (Guadalupe County, NE San Antonio). Flagged INFERENCE project (not full data center) per Regis Fee Breakdown doc. /Elko (Schertz)/10 - KMZ & GIS/ folder was empty on last read.",
         "precise": false,
         "color": "#cf222e"
       }
@@ -788,7 +792,8 @@
         "county": "Fisher",
         "utility": "Oncor / AEP",
         "stage": "Active development",
-        "note": "Fisher County, TX. Substation: Clear Fork. Active Projects SharePoint folder: Fisher (Clear Fork). County centroid \u2014 precise KMZ boundary in SharePoint.",
+        "mw": "",
+        "note": "Fisher County, TX. Substation: Clear Fork. Master KMZ: /Fisher (Clear Fork)/11 - KMZ & GIS/Project Fisher_Master_2026-02-04.kmz. County centroid.",
         "precise": false,
         "color": "#cf222e"
       }
@@ -808,31 +813,10 @@
         "name": "Project Kubiak",
         "aka": "Houston",
         "county": "Harris",
-        "utility": "CenterPoint",
+        "utility": "CenterPoint 345kV",
         "stage": "Active development",
-        "note": "Houston, TX (Harris County). Active Projects SharePoint folder: Kubiak (Houston). City centroid \u2014 precise KMZ boundary in SharePoint.",
-        "precise": false,
-        "color": "#cf222e"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -99.1428,
-          34.1223
-        ]
-      },
-      "properties": {
-        "layer": "project",
-        "developer": "REGIS",
-        "name": "Project Oklaunion",
-        "aka": "Vernon",
-        "county": "Wilbarger",
-        "utility": "AEP",
-        "stage": "Early diligence",
-        "note": "Wilbarger County, TX (zip 76384). Early diligence \u2014 NOT yet in Active Projects SharePoint folder. Google $1B+ co-located DC (Feb 2026) validates AEP interconnection. Per 'Initial Diligence Summary: Project Oklaunion' email. County centroid.",
+        "mw": "1200",
+        "note": "Houston, TX (Harris County). 1,200 MW target on CenterPoint 345kV per Regis assessment. /Kubiak (Houston)/11 - KMZ & GIS/5 - Kubiak (Houston).kmz.",
         "precise": false,
         "color": "#cf222e"
       }

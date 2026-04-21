@@ -67,13 +67,12 @@ DCS = [
 # Coords are approximate city centroids unless flagged "precise".
 # KMZ boundaries live in SharePoint project folders; pull precise coords later.
 PROJECTS = [
-    {"name": "Sumlin",    "aka": "Laredo",     "county": "Webb",     "utility": "AEP Texas",   "lon": -99.5075,   "lat": 27.5306,   "stage": "Active development",   "note": "Laredo, TX. South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. Active Projects SharePoint folder: Sumlin (Laredo). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
-    {"name": "Price",     "aka": "Hillsboro",  "county": "Hill",     "utility": "Oncor",       "lon": -96.958196, "lat": 31.915673, "stage": "POI analysis done",    "note": "Hill County, TX (project-named 'Hillsboro'). 1.5 GW BTM Gas + Grid target. Sam Switch POI delivered Apr 10 2026 by Donald. KMZ site boundary on file. EXACT coordinate from Regis POI email.", "precise": True},
-    {"name": "Carswell",  "aka": "Corsicana",  "county": "Navarro",  "utility": "Oncor",       "lon": -96.4689,   "lat": 32.0954,   "stage": "Active development",   "note": "Corsicana, TX (Navarro County) — NOT Fort Worth Carswell AFB. Active Projects SharePoint folder: Carswell (Corsicana). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
-    {"name": "Elko",      "aka": "Schertz",    "county": "Guadalupe","utility": "CPS Energy",  "lon": -98.2697,   "lat": 29.6321,   "stage": "Active development",   "note": "Schertz, TX (Guadalupe County, northeast San Antonio) — NOT West TX. Active Projects SharePoint folder: Elko (Schertz). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
-    {"name": "Fisher",    "aka": "Clear Fork", "county": "Fisher",   "utility": "Oncor / AEP", "lon": -100.3003,  "lat": 32.7311,   "stage": "Active development",   "note": "Fisher County, TX. Substation: Clear Fork. Active Projects SharePoint folder: Fisher (Clear Fork). County centroid — precise KMZ boundary in SharePoint.", "precise": False},
-    {"name": "Kubiak",    "aka": "Houston",    "county": "Harris",   "utility": "CenterPoint", "lon": -95.3698,   "lat": 29.7604,   "stage": "Active development",   "note": "Houston, TX (Harris County). Active Projects SharePoint folder: Kubiak (Houston). City centroid — precise KMZ boundary in SharePoint.", "precise": False},
-    {"name": "Oklaunion", "aka": "Vernon",     "county": "Wilbarger","utility": "AEP",         "lon": -99.1428,   "lat": 34.1223,   "stage": "Early diligence",      "note": "Wilbarger County, TX (zip 76384). Early diligence — NOT yet in Active Projects SharePoint folder. Google $1B+ co-located DC (Feb 2026) validates AEP interconnection. Per 'Initial Diligence Summary: Project Oklaunion' email. County centroid.", "precise": False},
+    {"name": "Sumlin",    "aka": "Laredo",     "county": "Webb",     "utility": "AEP Texas",   "lon": -99.5075,   "lat": 27.5306,   "stage": "Active development",        "mw": "",      "note": "Laredo, TX. South Texas Border Hub proximity. AEP LOA in progress (Paulino). Howard Energy gas supply; Hachar PSA under redline. SharePoint folder: /Active Projects/Sumlin (Laredo)/11 - KMZ & GIS/Project Sumlin_Master_2026.04.08.kmz.", "precise": False},
+    {"name": "Price",     "aka": "Hillsboro",  "county": "Hill",     "utility": "Oncor",       "lon": -96.958196, "lat": 31.915673, "stage": "POI analysis done",         "mw": "1500",  "note": "Hill County, TX. 1.5 GW BTM Gas + Grid target. Sam Switch POI delivered Apr 10 2026 by Donald. EXACT coordinate from Regis POI email. Master KMZ: /Price (Hillsboro)/10 - KMZ & GIS/Price_Master_KMZ_2026-04-09_agent.kmz.", "precise": True},
+    {"name": "Carswell",  "aka": "Corsicana",  "county": "Navarro",  "utility": "Oncor",       "lon": -96.4689,   "lat": 32.0954,   "stage": "Active development",        "mw": "",      "note": "Corsicana, TX (Navarro County) — NOT Fort Worth/Carswell AFB. /Carswell (Corsicana)/10 - KMZ & GIS/ folder exists but was empty on last read — master KMZ may live elsewhere or not yet created.", "precise": False},
+    {"name": "Elko",      "aka": "Schertz",    "county": "Guadalupe","utility": "CPS Energy",  "lon": -98.2697,   "lat": 29.6321,   "stage": "INFERENCE project",         "mw": "",      "note": "Schertz, TX (Guadalupe County, NE San Antonio). Flagged INFERENCE project (not full data center) per Regis Fee Breakdown doc. /Elko (Schertz)/10 - KMZ & GIS/ folder was empty on last read.", "precise": False},
+    {"name": "Fisher",    "aka": "Clear Fork", "county": "Fisher",   "utility": "Oncor / AEP", "lon": -100.3003,  "lat": 32.7311,   "stage": "Active development",        "mw": "",      "note": "Fisher County, TX. Substation: Clear Fork. Master KMZ: /Fisher (Clear Fork)/11 - KMZ & GIS/Project Fisher_Master_2026-02-04.kmz. County centroid.", "precise": False},
+    {"name": "Kubiak",    "aka": "Houston",    "county": "Harris",   "utility": "CenterPoint 345kV", "lon": -95.3698, "lat": 29.7604, "stage": "Active development",        "mw": "1200",  "note": "Houston, TX (Harris County). 1,200 MW target on CenterPoint 345kV per Regis assessment. /Kubiak (Houston)/11 - KMZ & GIS/5 - Kubiak (Houston).kmz.", "precise": False},
 ]
 
 STATUS_COLORS = {
@@ -162,6 +161,7 @@ def main():
                 "county": p["county"],
                 "utility": p["utility"],
                 "stage": p["stage"],
+                "mw": p.get("mw", ""),
                 "note": p["note"],
                 "precise": p["precise"],
                 "color": "#cf222e",
@@ -341,6 +341,7 @@ map.on('load', () => {{
         <h3 style="margin-top:8px;">${{p.name}}</h3>
         <div class="dev">${{p.aka}} (${{p.county}} County) · ${{p.stage}}</div>
         <div class="field"><strong>Utility:</strong> ${{p.utility}}</div>
+        ${{p.mw ? `<div class="field"><strong>Target capacity:</strong> ${{p.mw}} MW</div>` : ''}}
         <div class="field"><strong>Accuracy:</strong> ${{p.precise === 'true' ? 'exact coords (from POI email)' : 'approximate — city/county centroid; precise KMZ in SharePoint'}}</div>
         ${{p.note ? `<div class="note">${{p.note}}</div>` : ''}}
       `;
