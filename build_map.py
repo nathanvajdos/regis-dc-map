@@ -1,12 +1,18 @@
 """
-Build a self-contained Mapbox GL JS HTML map from Regis DC Locations
-+ Regis project sites as a distinct layer.
+Regis DC Competitive Map — automated builder.
 
-Input: hardcoded DC list (extracted from Smartsheet DC Locations Sheet)
-       + hardcoded Regis project site list (from DC Land Sheet + emails).
-Output: index.html  — single HTML file with two layers.
+Pulls competitor DC data live from Smartsheet API, geocodes any rows missing
+Lat/Long via Mapbox, merges with the Regis project list (projects.json), and
+writes index.html + dc_locations.geojson.
 
-Run: python build_map.py
+Designed to run in GitHub Actions on a weekly cron. Secrets required:
+  SMARTSHEET_TOKEN  - Smartsheet personal access token (read sheet)
+  MAPBOX_TOKEN      - Mapbox public token (pk.*) for geocoding + map tiles
+
+Local run:
+  export SMARTSHEET_TOKEN=...
+  export MAPBOX_TOKEN=...
+  python build_map.py
 """
 
 import json
@@ -16,78 +22,99 @@ import time
 import urllib.parse
 import urllib.request
 
-MAPBOX_TOKEN = "pk.eyJ1IjoibmF0aGFudmFqZG9zIiwiYSI6ImNtbzJnZHBlaDByemMycXB1eTVyeDR1eGEifQ.WTV3pptYpG_EFZ5Y11f07Q"
+SHEET_ID = 943562557443972
 
-# ============================================================================
-# COMPETITOR DATA CENTERS (from Smartsheet DC Locations Sheet)
-# ============================================================================
-DCS = [
-    {"developer": "Edged Energy", "name": "Edged Fort Worth", "status": "3_In Development", "market": "DFW", "address": None, "city": "Fort Worth", "county": None, "state": "TX", "zip": None, "mw": None, "owner": None, "note": "$1.1B hyperscaler DC; zoning approved Apr 8 2026"},
-    {"developer": "Google (funded)", "name": "Goodnight Data Center", "status": "3_In Development", "market": "WEST", "address": None, "city": "Goodnight", "county": "Armstrong", "state": "TX", "zip": None, "mw": None, "owner": None, "note": "Google-funded; on-site gas plant per TX air permit"},
-    {"developer": "Iron Mountain", "name": "Iron Mountain Austin Campus", "status": "3_In Development", "market": "AUS", "address": None, "city": "Austin", "county": None, "state": "TX", "zip": None, "mw": None, "owner": None, "note": "7-building campus planned outside Austin"},
-    {"developer": "PowerHouse Data Centers", "name": "PowerHouse Irving DC1", "status": "2_Under Construction", "market": "DFW", "address": None, "city": "Irving", "county": None, "state": "TX", "zip": None, "mw": None, "owner": None, "note": "First Irving DC; topped out Mar 2026"},
-    {"developer": "Microsoft", "name": "Microsoft Medina TX (2 sites)", "status": "3_In Development", "market": "SA", "address": None, "city": "Hondo", "county": "Medina", "state": "TX", "zip": None, "mw": None, "owner": None, "note": "$52M across 2 DCs in Medina County"},
-    {"developer": "TBD (Nolan County $7B)", "name": "Nolan County $7B DC (Sweetwater)", "status": "3_In Development", "market": "WEST", "address": None, "city": "Sweetwater", "county": "Nolan", "state": "TX", "zip": None, "mw": None, "owner": None, "note": "$7B project; 10-yr tax abatement approved Apr 15 2026"},
-    {"developer": "Concord New Energy (HK:00182)", "name": "Concord NE TX 1GW DC", "status": "3_In Development", "market": "OTHER", "address": None, "city": None, "county": None, "state": "TX", "zip": None, "mw": 1000, "owner": None, "note": "1 GW ERCOT approval; co-located w/ solar+BESS"},
-    {"developer": "xAI", "name": "Colossus 2 (Mississippi)", "status": "2_Under Construction", "market": "OTHER", "address": None, "city": "Southaven", "county": None, "state": "MS", "zip": None, "mw": None, "owner": None, "note": "xAI Colossus 2; MS gas turbines approved Mar 2026"},
-    {"developer": "ACS Infrastructure", "name": "ACS Fort Worth Campus", "status": "3_In Development", "market": "DFW", "address": "10059 Hicks Field Rd", "city": "Fort Worth", "county": "Tarrant", "state": "TX", "zip": "76179", "mw": None, "owner": None, "note": "107-acre greenfield; 5-building campus; $2B investment"},
-    {"developer": "Centersquare", "name": "Centersquare Dallas/Fort Worth", "status": "1_Operating", "market": "DFW", "address": "14901 FAA Blvd", "city": "Fort Worth", "county": "Tarrant", "state": "TX", "zip": "76155", "mw": None, "owner": None, "note": None},
-    {"developer": "Aligned Energy", "name": "DFW-03", "status": "2_Under Construction", "market": "DFW", "address": "3801 Britton Rd", "city": "Mansfield", "county": None, "state": "TX", "zip": None, "mw": 95, "owner": None, "note": "429,600 SF"},
-    {"developer": "Skybox Datacenters", "name": "Skybox - Austin 1", "status": "1_Operating", "market": "AUS", "address": "600 New Meister Lane", "city": "Pflugerville", "county": None, "state": "TX", "zip": None, "mw": 30, "owner": "Nathan", "note": None},
-    {"developer": "Skybox Datacenters", "name": "Skybox - Austin 2", "status": "2_Under Construction", "market": "AUS", "address": "2515 S Kenney Fort Blvd", "city": "Pflugerville", "county": "Travis", "state": "TX", "zip": None, "mw": None, "owner": None, "note": None},
-    {"developer": "Cyrus One", "name": "SAT5-SAT6", "status": "1_Operating", "market": "SA", "address": "14719 Omicron Drive", "city": "San Antonio", "county": None, "state": "TX", "zip": "78245", "mw": 18, "owner": None, "note": None},
-    {"developer": "Cyrus One", "name": "SAT1", "status": "1_Operating", "market": "SA", "address": "9999 Westover Hills Boulevard", "city": "San Antonio", "county": None, "state": "TX", "zip": "78251", "mw": 9, "owner": None, "note": None},
-    {"developer": "Cyrus One", "name": "SAT2-SAT4", "status": "1_Operating", "market": "SA", "address": "9554 Westover Hills Boulevard", "city": "San Antonio", "county": None, "state": "TX", "zip": "78251", "mw": 36, "owner": None, "note": None},
-    {"developer": "Cyrus One", "name": "SAT2", "status": "1_Operating", "market": "SA", "address": "9655 Raba Drive", "city": "San Antonio", "county": None, "state": "TX", "zip": "78251", "mw": None, "owner": None, "note": None},
-    {"developer": "Cyrus One", "name": "SAT3", "status": "1_Operating", "market": "SA", "address": "9655 Raba Drive", "city": "San Antonio", "county": None, "state": "TX", "zip": "78251", "mw": None, "owner": None, "note": None},
-    {"developer": "Cyrus One", "name": "SAT4", "status": "1_Operating", "market": "SA", "address": "9655 Raba Drive", "city": "San Antonio", "county": None, "state": "TX", "zip": "78251", "mw": None, "owner": None, "note": None},
-    {"developer": "H5 Data Centers", "name": "H5 San Antonio", "status": "1_Operating", "market": "SA", "address": "100 Taylor Street", "city": "San Antonio", "county": "Bexar", "state": "TX", "zip": "78205", "mw": None, "owner": "Donald", "note": "85,000 SF"},
-    {"developer": "QTS Data Centers", "name": "San Antonio 2", "status": "1_Operating", "market": "SA", "address": "8535 Potranco Road", "city": "San Antonio", "county": "Bexar", "state": "TX", "zip": "78251", "mw": 90, "owner": "Nathan", "note": None},
-    {"developer": "Rowan", "name": "Project Cinco", "status": "3_In Development", "market": "SA", "address": None, "city": "Lytle", "county": "Medina", "state": "TX", "zip": "78016", "mw": 300, "owner": None, "note": None},
-    {"developer": "Stream", "name": "San Antonio II", "status": "1_Operating", "market": "SA", "address": "9550 Westover Hills Blvd", "city": "San Antonio", "county": "Bexar", "state": "TX", "zip": "78251", "mw": None, "owner": None, "note": None},
-    {"developer": "Stream", "name": "San Antonio III", "status": "2_Under Construction", "market": "SA", "address": "11203 Military Drive W", "city": "San Antonio", "county": "Bexar", "state": "TX", "zip": None, "mw": 200, "owner": None, "note": None},
-    {"developer": "Vantage", "name": "Frontier", "status": "2_Under Construction", "market": "WEST", "address": None, "city": "Albany", "county": "Shackelford", "state": "TX", "zip": None, "mw": 1400, "owner": None, "note": "Massive Frontier DC campus"},
-    {"developer": "Lancium", "name": "Stargate (Oracle/OpenAI/SoftBank)", "status": "2_Under Construction", "market": "WEST", "address": "5502 Spinks Rd", "city": "Abilene", "county": None, "state": "TX", "zip": None, "mw": None, "owner": "Donald", "note": "Stargate anchor project"},
-    {"developer": "Yondr Group", "name": "Yondr Lancaster", "status": "3_In Development", "market": "DFW", "address": None, "city": "Lancaster", "county": None, "state": "TX", "zip": None, "mw": 550, "owner": None, "note": None},
-    {"developer": "Stack Infrastructure", "name": "DFW02", "status": "2_Under Construction", "market": "DFW", "address": "1000 East Beltline Drive", "city": "Lancaster", "county": None, "state": "TX", "zip": "75146", "mw": 500, "owner": "Nathan", "note": None},
-    {"developer": "Equinix", "name": "Infomart Dallas", "status": "1_Operating", "market": "DFW", "address": "1990 North Stemmons Freeway", "city": "Dallas", "county": None, "state": "TX", "zip": "75207", "mw": 50, "owner": None, "note": None},
-    {"developer": "Equinix", "name": "DA1", "status": "1_Operating", "market": "DFW", "address": "1950 N Stemmons Fwy", "city": "Dallas", "county": None, "state": "TX", "zip": "75207", "mw": None, "owner": None, "note": None},
-    {"developer": "Equinix", "name": "DA11", "status": "1_Operating", "market": "DFW", "address": "1990 North Stemmons Freeway", "city": "Dallas", "county": None, "state": "TX", "zip": "75207", "mw": None, "owner": None, "note": None},
-]
-
-# ============================================================================
-# REGIS PROJECT SITES (from SharePoint Active Projects folder + email coords)
-# ============================================================================
-# Active Projects per SharePoint (bizdev/08_Data Center Development/03_DC Projects by Utility/Active Projects):
-#   Sumlin (Laredo), Price (Hillsboro), Carswell (Corsicana), Elko (Schertz),
-#   Fisher (Clear Fork), Kubiak (Houston).
-# Plus Oklaunion (Wilbarger) — in early diligence per Regis-internal POI email
-# (not yet in Active Projects SharePoint folder).
-#
-# Coords are approximate city centroids unless flagged "precise".
-# KMZ boundaries live in SharePoint project folders; pull precise coords later.
-PROJECTS = [
-    {"name": "Sumlin",    "aka": "Laredo",     "county": "Webb",     "utility": "AEP Texas",   "lon": -99.275759, "lat": 27.578866, "stage": "Executed LOA: 300 MW N. Laredo Switch + 500 MW Lobo pending", "mw": "800",   "note": "Lobo Substation / Project Site on FM 255, ~5 mi north of Laredo, Webb County. Executed AEP LOA for 300 MW via North Laredo Switch (Q1 2029 / Q2 2030 ISD). Lobo 500 MW secondary request pending (Apr 17 2026 memo). Hachar Family Trust: 688 ac primary + 1,198 ac expansion = 1,886 ac. EXACT coordinate from Lobo 500 MW memo.", "precise": True},
-    {"name": "Price",     "aka": "Hillsboro",  "county": "Hill",     "utility": "Oncor",       "lon": -96.958196, "lat": 31.915673, "stage": "POI analysis done",         "mw": "1500",  "note": "Hill County, TX. 1.5 GW BTM Gas + Grid target. Sam Switch POI delivered Apr 10 2026 by Donald. EXACT coordinate from Regis POI email. Master KMZ: /Price (Hillsboro)/10 - KMZ & GIS/Price_Master_KMZ_2026-04-09_agent.kmz.", "precise": True},
-    {"name": "Carswell",  "aka": "Corsicana",  "county": "Navarro",  "utility": "Oncor (dual w/ Navarro EC)", "lon": -96.499874, "lat": 31.963114, "stage": "Active development",        "mw": "1500",  "note": "7 miles SW of Corsicana, TX (Navarro County) — NOT Fort Worth/Carswell AFB. Substation S+W of Corsicana, adjacent to Riot Blockchain facility. 622 ac pursuing LOI + 100+ ac expansion w/ multiple landowners. Oncor 345kV + Atmos 10.75\" pipeline. 1.5 GW target (300 MW BTM gas by 2028, 250 MW grid expanding). EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.", "precise": True},
-    {"name": "Elko",      "aka": "Schertz",    "county": "Guadalupe","utility": "CPS Energy",  "lon": -98.2697,   "lat": 29.6321,   "stage": "INFERENCE project",         "mw": "250",   "note": "Tri-County substation, Schertz, TX (Guadalupe County, NE San Antonio). Flagged INFERENCE project (not full data center) per Regis Fee Breakdown. City centroid approximate — Tri-County substation precise coord still needed (pending Donald). Planned 250 MW.", "precise": False},
-    {"name": "Fisher",    "aka": "Lockhart",   "county": "Caldwell", "utility": "BBEC",        "lon": -97.726184, "lat": 29.859999, "stage": "Active development",        "mw": "1500",  "note": "1 mile SW of Lockhart, TX (Caldwell County — NOT Fisher County; DC Land Sheet was stale). Served by BBEC (Bluebonnet EC). 327 ac LOI in negotiation + 579 ac expansion w/ 2 landowners. Kinder Morgan 42\" + Energy Transfer 20\" gas pipelines adjacent. LCRA 345kV. 1.5 GW target (287 MW BTM gas 2028, 40-74 MW grid expanding). 25 mi from Austin Bergstrom. EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.", "precise": True},
-    {"name": "Kubiak",    "aka": "Houston",    "county": "Harris",   "utility": "CenterPoint 345kV", "lon": -95.3698, "lat": 29.7604, "stage": "Pre-site control (no land yet)", "mw": "1200",  "note": "Houston, TX (Harris County). 1,200 MW target on CenterPoint 345kV. Per Apr 11 2026 assessment: NO lead, NO land, NO model clarity (32% probability of success). Strong macro fundamentals (Houston gas liquidity, labor, fiber, water) but worst execution status. Houston centroid used as placeholder pin until land is identified.", "precise": False},
-]
+# Smartsheet column IDs (stable; from one-time discovery)
+COL = {
+    "DC Type": 8264483543928708,
+    "DC Developer": 3760883916558212,
+    "DC Name": 5605446339743620,
+    "Status": 4450297705615236,
+    "Primary Market": 3197933963136900,
+    "Total Cap (MW)": 4403984200847236,
+    "Address": 4863784541966212,
+    "City": 2611984728280964,
+    "County": 4344744589348740,
+    "State": 3382424082009988,
+    "Zip": 6899660847533956,
+    "Owner": 1272839225429892,
+    "Latitude": 7658186925707140,
+    "Longitude": 2028687391494020,
+    "Location Notes": 7886023709380484,
+}
 
 STATUS_COLORS = {
     "1_Operating": "#1a7f37",
     "2_Under Construction": "#e16f24",
+    "3_ In Development": "#0969da",
     "3_In Development": "#0969da",
     "4_Proposed": "#8250df",
 }
 
+PLACEHOLDER_DEVELOPERS = {"zzz - Add New DC Here", "TEST"}
 
-def geocode(query):
+
+def smartsheet_get_sheet(token, sheet_id):
+    url = f"https://api.smartsheet.com/2.0/sheets/{sheet_id}?pageSize=10000"
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def cell_value(row_cells_by_col, col_id):
+    cell = row_cells_by_col.get(col_id, {})
+    v = cell.get("displayValue", cell.get("value", ""))
+    if v is None:
+        return ""
+    return str(v).strip()
+
+
+def parse_dcs_from_sheet(sheet):
+    rows = sheet.get("rows", [])
+    out = []
+    for row in rows:
+        cells_by_col = {c["columnId"]: c for c in row.get("cells", [])}
+        developer = cell_value(cells_by_col, COL["DC Developer"])
+        if not developer or developer in PLACEHOLDER_DEVELOPERS:
+            continue
+
+        lat_str = cell_value(cells_by_col, COL["Latitude"])
+        lon_str = cell_value(cells_by_col, COL["Longitude"])
+        try:
+            lat = float(lat_str) if lat_str else None
+            lon = float(lon_str) if lon_str else None
+        except ValueError:
+            lat = lon = None
+
+        zip_str = cell_value(cells_by_col, COL["Zip"])
+        if zip_str.endswith(".0"):
+            zip_str = zip_str[:-2]
+
+        out.append({
+            "row_id": row.get("id"),
+            "developer": developer,
+            "name": cell_value(cells_by_col, COL["DC Name"]),
+            "status": cell_value(cells_by_col, COL["Status"]),
+            "market": cell_value(cells_by_col, COL["Primary Market"]),
+            "address": cell_value(cells_by_col, COL["Address"]),
+            "city": cell_value(cells_by_col, COL["City"]),
+            "county": cell_value(cells_by_col, COL["County"]),
+            "state": cell_value(cells_by_col, COL["State"]),
+            "zip": zip_str,
+            "mw": cell_value(cells_by_col, COL["Total Cap (MW)"]),
+            "owner": cell_value(cells_by_col, COL["Owner"]),
+            "note": cell_value(cells_by_col, COL["Location Notes"]),
+            "lat": lat,
+            "lon": lon,
+        })
+    return out
+
+
+def mapbox_geocode(query, mapbox_token):
     encoded = urllib.parse.quote(query)
     url = (
         f"https://api.mapbox.com/geocoding/v5/mapbox.places/{encoded}.json"
-        f"?access_token={MAPBOX_TOKEN}&country=us&limit=1&types=address,poi,place,locality"
+        f"?access_token={mapbox_token}&country=us&limit=1&types=address,poi,place,locality"
     )
     try:
         with urllib.request.urlopen(url, timeout=10) as resp:
@@ -98,7 +125,7 @@ def geocode(query):
         center = feats[0]["center"]
         return (center[0], center[1])
     except Exception as e:
-        print(f"  geocode error: {e}", file=sys.stderr)
+        print(f"  geocode error for '{query}': {e}", file=sys.stderr)
         return None
 
 
@@ -110,26 +137,46 @@ def build_query(dc):
 
 
 def main():
+    smartsheet_token = os.environ.get("SMARTSHEET_TOKEN")
+    mapbox_token = os.environ.get("MAPBOX_TOKEN")
+    if not smartsheet_token:
+        print("ERROR: SMARTSHEET_TOKEN env var not set", file=sys.stderr)
+        sys.exit(1)
+    if not mapbox_token:
+        print("ERROR: MAPBOX_TOKEN env var not set", file=sys.stderr)
+        sys.exit(1)
+
     out_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # ---- Geocode DCs ----
+    print(f"Fetching DC Locations Sheet (id {SHEET_ID})...")
+    sheet = smartsheet_get_sheet(smartsheet_token, SHEET_ID)
+    all_dcs = parse_dcs_from_sheet(sheet)
+    print(f"  -> {len(all_dcs)} non-placeholder rows")
+
     dc_features = []
-    print(f"Geocoding {len(DCS)} competitor DCs...")
-    for i, dc in enumerate(DCS):
-        query = build_query(dc)
-        if not query:
-            print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} SKIP")
-            continue
-        coords = geocode(query)
-        if not coords:
-            print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} FAIL")
-            continue
-        lon, lat = coords
-        print(f"  [{i+1:>2}/{len(DCS)}] {dc['developer']:<30} OK")
-        status_label = dc["status"].replace("1_", "").replace("2_", "").replace("3_", "").replace("4_", "")
+    geocoded = 0
+    skipped = 0
+    cached = 0
+    for dc in all_dcs:
+        if dc["lat"] is None or dc["lon"] is None:
+            query = build_query(dc)
+            if not query:
+                skipped += 1
+                continue
+            coords = mapbox_geocode(query, mapbox_token)
+            if not coords:
+                skipped += 1
+                continue
+            dc["lon"], dc["lat"] = coords
+            geocoded += 1
+            time.sleep(0.05)
+        else:
+            cached += 1
+
+        status_label = dc["status"].replace("1_", "").replace("2_", "").replace("3_", "").replace("4_", "").strip()
         dc_features.append({
             "type": "Feature",
-            "geometry": {"type": "Point", "coordinates": [lon, lat]},
+            "geometry": {"type": "Point", "coordinates": [dc["lon"], dc["lat"]]},
             "properties": {
                 "layer": "dc",
                 "developer": dc["developer"],
@@ -143,13 +190,18 @@ def main():
                 "color": STATUS_COLORS.get(dc["status"], "#6e7781"),
             },
         })
-        time.sleep(0.1)
 
-    # ---- Regis project sites (pre-coded coordinates) ----
+    print(f"  -> {len(dc_features)} DCs on map ({cached} cached coords, {geocoded} freshly geocoded, {skipped} skipped no location)")
+
+    projects_path = os.path.join(out_dir, "projects.json")
+    with open(projects_path, "r", encoding="utf-8") as f:
+        projects_doc = json.load(f)
+    projects = projects_doc.get("projects", [])
+    print(f"\nLoading {len(projects)} Regis project sites from projects.json...")
+
     project_features = []
-    print(f"\nAdding {len(PROJECTS)} Regis project sites...")
-    for p in PROJECTS:
-        print(f"  * Project {p['name']:<10} ({'EXACT' if p['precise'] else 'approx'}) {p['aka']:<12} -> {p['lat']:.4f}, {p['lon']:.4f}")
+    for p in projects:
+        print(f"  * Project {p['name']:<10} ({'EXACT' if p.get('precise') else 'approx'}) {p.get('aka', ''):<12} -> {p['lat']:.4f}, {p['lon']:.4f}")
         project_features.append({
             "type": "Feature",
             "geometry": {"type": "Point", "coordinates": [p["lon"], p["lat"]]},
@@ -157,13 +209,13 @@ def main():
                 "layer": "project",
                 "developer": "REGIS",
                 "name": f"Project {p['name']}",
-                "aka": p["aka"],
-                "county": p["county"],
-                "utility": p["utility"],
-                "stage": p["stage"],
+                "aka": p.get("aka", ""),
+                "county": p.get("county", ""),
+                "utility": p.get("utility", ""),
+                "stage": p.get("stage", ""),
                 "mw": p.get("mw", ""),
-                "note": p["note"],
-                "precise": p["precise"],
+                "note": p.get("note", ""),
+                "precise": p.get("precise", False),
                 "color": "#cf222e",
             },
         })
@@ -175,30 +227,26 @@ def main():
         json.dump(geojson, f, indent=2)
 
     with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
-        f.write(generate_html(geojson, len(dc_features), len(project_features)))
+        f.write(generate_html(geojson, len(dc_features), len(project_features), mapbox_token))
 
     print(f"\n[OK] {len(dc_features)} DCs + {len(project_features)} Regis projects = {len(features)} pins total.")
-    print(f"[OK] Wrote index.html and dc_locations.geojson in {out_dir}")
+    print(f"[OK] Wrote index.html and dc_locations.geojson")
 
 
-def generate_html(geojson, n_dcs, n_projects):
+def generate_html(geojson, n_dcs, n_projects, mapbox_token):
     geojson_str = json.dumps(geojson)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Regis DC Competitive Map + Project Sites</title>
+<title>Regis DC Competitive Map</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.css" rel="stylesheet" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.js"></script>
 <style>
   body {{ margin: 0; padding: 0; font-family: -apple-system, 'Segoe UI', Arial, sans-serif; }}
   #map {{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; }}
-  .map-overlay {{
-    position: absolute; top: 14px; left: 14px; background: #fff;
-    border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    padding: 14px 16px; font-size: 13px; z-index: 2; max-width: 300px;
-  }}
+  .map-overlay {{ position: absolute; top: 14px; left: 14px; background: #fff; border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.15); padding: 14px 16px; font-size: 13px; z-index: 2; max-width: 300px; }}
   .map-overlay h1 {{ font-size: 15px; margin: 0 0 6px 0; color: #0d1117; }}
   .map-overlay p {{ margin: 4px 0; color: #57606a; font-size: 12px; }}
   .legend {{ margin-top: 10px; }}
@@ -223,12 +271,7 @@ def generate_html(geojson, n_dcs, n_projects):
   .footer a {{ color: #0969da; text-decoration: none; }}
   .table-toggle {{ background: #0969da; color: #fff; border: 0; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; width: 100%; margin-top: 8px; }}
   .table-toggle:hover {{ background: #0857b8; }}
-  #tablePanel {{
-    position: absolute; top: 0; right: 0; bottom: 0; width: 540px; max-width: 90vw;
-    background: #fff; box-shadow: -4px 0 16px rgba(0,0,0,0.15); z-index: 3;
-    transform: translateX(100%); transition: transform 0.25s ease-out;
-    display: flex; flex-direction: column; overflow: hidden;
-  }}
+  #tablePanel {{ position: absolute; top: 0; right: 0; bottom: 0; width: 540px; max-width: 90vw; background: #fff; box-shadow: -4px 0 16px rgba(0,0,0,0.15); z-index: 3; transform: translateX(100%); transition: transform 0.25s ease-out; display: flex; flex-direction: column; overflow: hidden; }}
   #tablePanel.open {{ transform: translateX(0); }}
   .tp-header {{ padding: 12px 16px; border-bottom: 1px solid #d0d7de; display: flex; align-items: center; justify-content: space-between; background: #f6f8fa; }}
   .tp-header h2 {{ margin: 0; font-size: 14px; color: #0d1117; }}
@@ -252,7 +295,6 @@ def generate_html(geojson, n_dcs, n_projects):
   .tp-body .status-dot {{ display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }}
   .tp-body .mw-bar {{ display: inline-block; height: 4px; background: #0969da; border-radius: 2px; vertical-align: middle; margin-right: 6px; min-width: 2px; }}
   .tp-body tr.regis .mw-bar {{ background: #cf222e; }}
-  .tp-body .flyto {{ color: #0969da; cursor: pointer; text-decoration: none; font-size: 10px; margin-left: 6px; }}
   .tp-footer {{ padding: 6px 12px; border-top: 1px solid #d0d7de; font-size: 10px; color: #57606a; background: #f6f8fa; }}
 </style>
 </head>
@@ -260,7 +302,7 @@ def generate_html(geojson, n_dcs, n_projects):
 <div id="map"></div>
 <div class="map-overlay">
   <h1>Regis DC Competitive Map</h1>
-  <p>{n_dcs} competitor DCs + {n_projects} Regis project sites · Auto-updated Mon 7am CT</p>
+  <p>{n_dcs} competitor DCs + {n_projects} Regis project sites · Auto-updated weekly via GitHub Actions</p>
   <div class="legend">
     <h2>Competitor DCs</h2>
     <div class="legend-row"><span class="legend-dot" style="background:#1a7f37"></span>Operating</div>
@@ -268,7 +310,7 @@ def generate_html(geojson, n_dcs, n_projects):
     <div class="legend-row"><span class="legend-dot" style="background:#0969da"></span>In Development</div>
     <div class="legend-row"><span class="legend-dot" style="background:#8250df"></span>Proposed</div>
     <h2>Regis Projects</h2>
-    <div class="legend-row"><span class="legend-star">★</span>Project site (red star)</div>
+    <div class="legend-row"><span class="legend-star">*</span>Project site (red)</div>
   </div>
   <div class="filter-controls">
     <label for="marketFilter">Market (DCs)</label>
@@ -289,7 +331,7 @@ def generate_html(geojson, n_dcs, n_projects):
       <option value="">All statuses</option>
       <option value="1_Operating">Operating</option>
       <option value="2_Under Construction">Under Construction</option>
-      <option value="3_In Development">In Development</option>
+      <option value="3_ In Development">In Development</option>
       <option value="4_Proposed">Proposed</option>
     </select>
   </div>
@@ -300,21 +342,21 @@ def generate_html(geojson, n_dcs, n_projects):
       <label><input type="checkbox" id="toggleProjects" checked>Regis projects</label>
     </div>
   </div>
-  <button class="table-toggle" id="openTable">📋 Open Summary Table</button>
-  <p style="font-size: 10px; color: #8b949e; margin-top: 8px;">Pin size = MW capacity (area ∝ MW).</p>
+  <button class="table-toggle" id="openTable">Open Summary Table</button>
+  <p style="font-size: 10px; color: #8b949e; margin-top: 8px;">Pin size = MW capacity (area proportional to MW).</p>
 </div>
 
 <div id="tablePanel">
   <div class="tp-header">
     <h2>Summary Tables</h2>
-    <button class="tp-close" id="closeTable">×</button>
+    <button class="tp-close" id="closeTable">x</button>
   </div>
   <div class="tp-tabs">
     <button class="tp-tab active" data-tab="regis">Regis Projects (<span id="regisCount">0</span>)</button>
     <button class="tp-tab" data-tab="dcs">Competitor DCs (<span id="dcCount">0</span>)</button>
   </div>
   <div class="tp-search">
-    <input type="text" id="tableSearch" placeholder="Search by name, developer, market, county…">
+    <input type="text" id="tableSearch" placeholder="Search by name, developer, market, county...">
   </div>
   <div class="tp-body" id="tableBody"></div>
   <div class="tp-footer" id="tableFooter">Click any row to zoom to that pin. Click a column header to sort.</div>
@@ -322,10 +364,10 @@ def generate_html(geojson, n_dcs, n_projects):
 
 <div class="footer">
   Source: <a href="https://app.smartsheet.com/sheets/MfQHrM892gvWm38j44Vh3C5R2X3xxjxvC6G89vQ1" target="_blank">Smartsheet DC Locations</a>
-  · Regis project sites from DC Land Sheet + POI emails
+  · <a href="https://github.com/nathanvajdos/regis-dc-map">GitHub repo</a>
 </div>
 <script>
-mapboxgl.accessToken = '{MAPBOX_TOKEN}';
+mapboxgl.accessToken = '{mapbox_token}';
 const GEOJSON = {geojson_str};
 
 const map = new mapboxgl.Map({{
@@ -343,33 +385,16 @@ map.addControl(new mapboxgl.ScaleControl({{ maxWidth: 120, unit: 'imperial' }}),
 map.on('load', () => {{
   map.addSource('points', {{ type: 'geojson', data: GEOJSON }});
 
-  // ----- MW-based radius formulas -----
-  // Radius scales with sqrt(MW) since area ∝ MW (area-proportional sizing).
-  // Defaults are used when MW is missing/0 so every pin is visible.
-
-  // DC layer — circle area proportional to MW capacity
   map.addLayer({{
-    id: 'dcs-circles',
-    type: 'circle',
-    source: 'points',
+    id: 'dcs-circles', type: 'circle', source: 'points',
     filter: ['==', ['get', 'layer'], 'dc'],
     paint: {{
       'circle-radius': [
         'interpolate', ['linear'], ['zoom'],
-        4, [
-          'case',
-          ['>', ['to-number', ['get', 'mw']], 0],
-          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
-            0, 3, 50, 4, 200, 5, 500, 7, 1000, 9, 1500, 11, 3000, 14],
-          4
-        ],
-        10, [
-          'case',
-          ['>', ['to-number', ['get', 'mw']], 0],
-          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
-            0, 5, 50, 7, 200, 10, 500, 14, 1000, 19, 1500, 23, 3000, 30],
-          7
-        ]
+        4, ['case', ['>', ['to-number', ['get', 'mw']], 0],
+            ['interpolate', ['linear'], ['to-number', ['get', 'mw']], 0, 3, 50, 4, 200, 5, 500, 7, 1000, 9, 1500, 11, 3000, 14], 4],
+        10, ['case', ['>', ['to-number', ['get', 'mw']], 0],
+            ['interpolate', ['linear'], ['to-number', ['get', 'mw']], 0, 5, 50, 7, 200, 10, 500, 14, 1000, 19, 1500, 23, 3000, 30], 7]
       ],
       'circle-color': ['get', 'color'],
       'circle-stroke-width': 2,
@@ -378,29 +403,16 @@ map.on('load', () => {{
     }},
   }});
 
-  // Regis project layer — larger base size, MW-scaled, with halo
   map.addLayer({{
-    id: 'projects-halo',
-    type: 'circle',
-    source: 'points',
+    id: 'projects-halo', type: 'circle', source: 'points',
     filter: ['==', ['get', 'layer'], 'project'],
     paint: {{
       'circle-radius': [
         'interpolate', ['linear'], ['zoom'],
-        4, [
-          'case',
-          ['>', ['to-number', ['get', 'mw']], 0],
-          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
-            0, 10, 500, 15, 1500, 22, 3000, 30],
-          12
-        ],
-        10, [
-          'case',
-          ['>', ['to-number', ['get', 'mw']], 0],
-          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
-            0, 20, 500, 28, 1500, 40, 3000, 55],
-          22
-        ]
+        4, ['case', ['>', ['to-number', ['get', 'mw']], 0],
+            ['interpolate', ['linear'], ['to-number', ['get', 'mw']], 0, 10, 500, 15, 1500, 22, 3000, 30], 12],
+        10, ['case', ['>', ['to-number', ['get', 'mw']], 0],
+            ['interpolate', ['linear'], ['to-number', ['get', 'mw']], 0, 20, 500, 28, 1500, 40, 3000, 55], 22]
       ],
       'circle-color': '#cf222e',
       'circle-opacity': 0.18,
@@ -408,27 +420,15 @@ map.on('load', () => {{
     }},
   }});
   map.addLayer({{
-    id: 'projects-circles',
-    type: 'circle',
-    source: 'points',
+    id: 'projects-circles', type: 'circle', source: 'points',
     filter: ['==', ['get', 'layer'], 'project'],
     paint: {{
       'circle-radius': [
         'interpolate', ['linear'], ['zoom'],
-        4, [
-          'case',
-          ['>', ['to-number', ['get', 'mw']], 0],
-          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
-            0, 6, 500, 9, 1500, 13, 3000, 18],
-          7
-        ],
-        10, [
-          'case',
-          ['>', ['to-number', ['get', 'mw']], 0],
-          ['interpolate', ['linear'], ['to-number', ['get', 'mw']],
-            0, 12, 500, 17, 1500, 25, 3000, 34],
-          13
-        ]
+        4, ['case', ['>', ['to-number', ['get', 'mw']], 0],
+            ['interpolate', ['linear'], ['to-number', ['get', 'mw']], 0, 6, 500, 9, 1500, 13, 3000, 18], 7],
+        10, ['case', ['>', ['to-number', ['get', 'mw']], 0],
+            ['interpolate', ['linear'], ['to-number', ['get', 'mw']], 0, 12, 500, 17, 1500, 25, 3000, 34], 13]
       ],
       'circle-color': '#cf222e',
       'circle-stroke-width': 3,
@@ -446,7 +446,7 @@ map.on('load', () => {{
         <div class="dev">${{p.aka}} (${{p.county}} County) · ${{p.stage}}</div>
         <div class="field"><strong>Utility:</strong> ${{p.utility}}</div>
         ${{p.mw ? `<div class="field"><strong>Target capacity:</strong> ${{p.mw}} MW</div>` : ''}}
-        <div class="field"><strong>Accuracy:</strong> ${{p.precise === 'true' ? 'exact coords (from POI email)' : 'approximate — city/county centroid; precise KMZ in SharePoint'}}</div>
+        <div class="field"><strong>Accuracy:</strong> ${{p.precise === 'true' || p.precise === true ? 'exact coords' : 'approximate'}}</div>
         ${{p.note ? `<div class="note">${{p.note}}</div>` : ''}}
       `;
     }}
@@ -464,9 +464,7 @@ map.on('load', () => {{
   const clickHandler = (e) => {{
     const f = e.features[0];
     new mapboxgl.Popup({{ closeButton: true, maxWidth: '320px' }})
-      .setLngLat(f.geometry.coordinates)
-      .setHTML(popupFor(f))
-      .addTo(map);
+      .setLngLat(f.geometry.coordinates).setHTML(popupFor(f)).addTo(map);
   }};
 
   map.on('click', 'dcs-circles', clickHandler);
@@ -497,9 +495,6 @@ map.on('load', () => {{
   document.getElementById('toggleDCs').addEventListener('change', applyLayerToggle);
   document.getElementById('toggleProjects').addEventListener('change', applyLayerToggle);
 
-  // ============================================================
-  // Summary Table Panel
-  // ============================================================
   const panel = document.getElementById('tablePanel');
   const tableBody = document.getElementById('tableBody');
   const searchBox = document.getElementById('tableSearch');
@@ -540,45 +535,32 @@ map.on('load', () => {{
     const cols = activeTab === 'regis' ? regisCols : dcCols;
     const data = activeTab === 'regis' ? [...regisFeatures] : [...dcFeatures];
     const searchTerm = (searchBox.value || '').toLowerCase().trim();
-
     const filtered = searchTerm
-      ? data.filter(f => {{
-          const props = f.properties;
-          return Object.values(props).some(v => String(v).toLowerCase().includes(searchTerm));
-        }})
+      ? data.filter(f => Object.values(f.properties).some(v => String(v).toLowerCase().includes(searchTerm)))
       : data;
-
     filtered.sort((a, b) => {{
-      let av = getVal(a, sortCol);
-      let bv = getVal(b, sortCol);
+      let av = getVal(a, sortCol); let bv = getVal(b, sortCol);
       const col = cols.find(c => c.key === sortCol);
-      if (col && col.type === 'num') {{
-        av = parseFloat(av) || 0; bv = parseFloat(bv) || 0;
-      }} else {{
-        av = String(av).toLowerCase(); bv = String(bv).toLowerCase();
-      }}
+      if (col && col.type === 'num') {{ av = parseFloat(av) || 0; bv = parseFloat(bv) || 0; }}
+      else {{ av = String(av).toLowerCase(); bv = String(bv).toLowerCase(); }}
       if (av < bv) return sortDir === 'asc' ? -1 : 1;
       if (av > bv) return sortDir === 'asc' ? 1 : -1;
       return 0;
     }});
-
     const maxMW = Math.max(...data.map(f => parseFloat(getVal(f, 'mw')) || 0), 1);
-
     let html = '<table><thead><tr>';
     cols.forEach(c => {{
       const cls = c.key === sortCol ? `sort-${{sortDir}}` : '';
       html += `<th class="${{cls}}" data-col="${{c.key}}">${{c.label}}</th>`;
     }});
     html += '</tr></thead><tbody>';
-
     if (filtered.length === 0) {{
       html += `<tr><td colspan="${{cols.length}}" style="text-align:center; padding: 20px; color:#8b949e;">No results</td></tr>`;
     }} else {{
       filtered.forEach((f, idx) => {{
         const p = f.properties;
         const rowClass = activeTab === 'regis' ? 'regis' : '';
-        const dataId = `${{f.geometry.coordinates[0]}},${{f.geometry.coordinates[1]}}`;
-        html += `<tr class="${{rowClass}}" data-coords="${{dataId}}" data-layer="${{activeTab}}" data-idx="${{idx}}">`;
+        html += `<tr class="${{rowClass}}" data-layer="${{activeTab}}" data-idx="${{idx}}">`;
         cols.forEach(c => {{
           let v = getVal(f, c.key);
           if (c.key === 'mw' && v) {{
@@ -588,7 +570,7 @@ map.on('load', () => {{
           }} else if (c.key === 'status' && v) {{
             v = `<span class="status-dot" style="background:${{p.color}}"></span>${{v}}`;
           }} else if (c.key === 'precise') {{
-            v = v === true || v === 'true' ? '✅ exact' : '~ approx';
+            v = v === true || v === 'true' ? 'exact' : 'approx';
           }}
           html += `<td>${{v || '—'}}</td>`;
         }});
@@ -597,45 +579,32 @@ map.on('load', () => {{
     }}
     html += '</tbody></table>';
     tableBody.innerHTML = html;
-
-    // Header click to sort
     tableBody.querySelectorAll('th').forEach(th => {{
       th.addEventListener('click', () => {{
         const col = th.dataset.col;
-        if (sortCol === col) {{
-          sortDir = sortDir === 'asc' ? 'desc' : 'asc';
-        }} else {{
-          sortCol = col;
-          sortDir = 'desc';
-        }}
+        if (sortCol === col) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+        else {{ sortCol = col; sortDir = 'desc'; }}
         renderTable();
       }});
     }});
-
-    // Row click to fly-to
     tableBody.querySelectorAll('tbody tr').forEach(tr => {{
       tr.addEventListener('click', () => {{
-        const coords = tr.dataset.coords;
         const idx = parseInt(tr.dataset.idx, 10);
         const layer = tr.dataset.layer;
         const list = layer === 'regis' ? regisFeatures : dcFeatures;
-        const fSrc = list[idx] || list.find(ff => `${{ff.geometry.coordinates[0]}},${{ff.geometry.coordinates[1]}}` === coords);
+        const fSrc = list[idx];
         if (!fSrc) return;
         map.flyTo({{ center: fSrc.geometry.coordinates, zoom: 11, duration: 1200 }});
         setTimeout(() => {{
           new mapboxgl.Popup({{ closeButton: true, maxWidth: '320px' }})
-            .setLngLat(fSrc.geometry.coordinates)
-            .setHTML(popupFor(fSrc))
-            .addTo(map);
+            .setLngLat(fSrc.geometry.coordinates).setHTML(popupFor(fSrc)).addTo(map);
         }}, 1250);
       }});
     }});
-
     document.getElementById('tableFooter').textContent =
       `Showing ${{filtered.length}} of ${{data.length}} · sorted by ${{sortCol}} ${{sortDir}} · click row to fly to pin`;
   }};
 
-  // Default: sort Regis by MW desc initially
   sortCol = 'mw'; sortDir = 'desc';
   renderTable();
 
@@ -650,13 +619,8 @@ map.on('load', () => {{
   }});
 
   searchBox.addEventListener('input', renderTable);
-
-  document.getElementById('openTable').addEventListener('click', () => {{
-    panel.classList.add('open');
-  }});
-  document.getElementById('closeTable').addEventListener('click', () => {{
-    panel.classList.remove('open');
-  }});
+  document.getElementById('openTable').addEventListener('click', () => panel.classList.add('open'));
+  document.getElementById('closeTable').addEventListener('click', () => panel.classList.remove('open'));
 }});
 </script>
 </body>

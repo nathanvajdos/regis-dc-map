@@ -6,175 +6,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.331527,
-          32.753521
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "Edged Energy",
-        "name": "Edged Fort Worth",
-        "status": "In Development",
-        "status_key": "3_In Development",
-        "market": "DFW",
-        "mw": "",
-        "owner": "",
-        "note": "$1.1B hyperscaler DC; zoning approved Apr 8 2026",
-        "color": "#0969da"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -101.18609,
-          35.034256
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "Google (funded)",
-        "name": "Goodnight Data Center",
-        "status": "In Development",
-        "status_key": "3_In Development",
-        "market": "WEST",
-        "mw": "",
-        "owner": "",
-        "note": "Google-funded; on-site gas plant per TX air permit",
-        "color": "#0969da"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.742806,
-          30.268072
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "Iron Mountain",
-        "name": "Iron Mountain Austin Campus",
-        "status": "In Development",
-        "status_key": "3_In Development",
-        "market": "AUS",
-        "mw": "",
-        "owner": "",
-        "note": "7-building campus planned outside Austin",
-        "color": "#0969da"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -96.944127,
-          32.82938
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "PowerHouse Data Centers",
-        "name": "PowerHouse Irving DC1",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
-        "market": "DFW",
-        "mw": "",
-        "owner": "",
-        "note": "First Irving DC; topped out Mar 2026",
-        "color": "#e16f24"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -99.14188,
-          29.350229
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "Microsoft",
-        "name": "Microsoft Medina TX (2 sites)",
-        "status": "In Development",
-        "status_key": "3_In Development",
-        "market": "SA",
-        "mw": "",
-        "owner": "",
-        "note": "$52M across 2 DCs in Medina County",
-        "color": "#0969da"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -100.407373,
-          32.470591
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "TBD (Nolan County $7B)",
-        "name": "Nolan County $7B DC (Sweetwater)",
-        "status": "In Development",
-        "status_key": "3_In Development",
-        "market": "WEST",
-        "mw": "",
-        "owner": "",
-        "note": "$7B project; 10-yr tax abatement approved Apr 15 2026",
-        "color": "#0969da"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -87.301493,
           33.173192
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Concord New Energy (HK:00182)",
-        "name": "Concord NE TX 1GW DC",
-        "status": "In Development",
-        "status_key": "3_In Development",
-        "market": "OTHER",
-        "mw": 1000,
-        "owner": "",
-        "note": "1 GW ERCOT approval; co-located w/ solar+BESS",
-        "color": "#0969da"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -90.004801,
-          34.9872
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "xAI",
-        "name": "Colossus 2 (Mississippi)",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
-        "market": "OTHER",
+        "developer": "Acronis",
+        "name": "Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
         "mw": "",
         "owner": "",
-        "note": "xAI Colossus 2; MS gas turbines approved Mar 2026",
-        "color": "#e16f24"
+        "note": "",
+        "color": "#1a7f37"
       }
     },
     {
@@ -189,14 +35,410 @@
       "properties": {
         "layer": "dc",
         "developer": "ACS Infrastructure",
-        "name": "ACS Fort Worth Campus",
+        "name": "",
         "status": "In Development",
-        "status_key": "3_In Development",
+        "status_key": "3_ In Development",
         "market": "DFW",
         "mw": "",
         "owner": "",
-        "note": "107-acre greenfield; 5-building campus; $2B investment",
+        "note": "ACS Infrastructure Fort Worth Data Center Project\nACS Infrastructure Development Inc., a U.S. subsidiary of the Madrid-based global infrastructure giant ACS Group, is planning a major greenfield data center campus in northwest Fort Worth, Texas. ACS Group, which operates in over 25 countries and employs more than 135,000 people, is expanding into digital infrastructure as part of its strategy to develop 1.1 GW of initial capacity across multiple regions, including 300 MW in the U.S. The Fort Worth project aligns with this push, though specific power capacity details for the site have not been disclosed.\nProject Overview\nAspectDetailsDeveloperACS Infrastructure Development Inc. (ACS Group subsidiary; U.S. operations often via Turner Construction)Site Location107-acre greenfield site near Hicks Field Road, west of I-35, north of I-820, and east of Business 287 (Council District 7). Key addresses: 10059 Hicks Field Road, 10197 Hicks Field Road, 9401 Wagley Robertson Road. Near North Saginaw Road intersection.ScopeFive-building data center campus + privately owned Oncor Electric substation. Purpose-built, single-story data halls with a two-story administrative building.Phases- Phase 1: Completion by Dec. 31, 2031 ($240.8M real property + $842.8M business personal property; 28 jobs).\n- Phase 2: Completion by Dec. 31, 2034 ($240.8M real property + $842.8M business personal property; 9 additional jobs).Total InvestmentMinimum $2 billion ($481M in real property improvements + $1.7B in business personal property).Jobs Created37 full-time positions at full build-out (average annual salary \u2265 $150,000).Sustainability FeaturesWater loop system to minimize water usage; focus on reducing noise impact near residential areas via physical buffers.Tenants/CustomersNone secured yet; ACS plans to develop for lease or sale. Past clients include Meta, Microsoft, Google, Apple, and AWS.StatusPlanned; filings submitted in April 2025. Fort Worth City Council approved economic incentives in April 2025 (35% tax abatement for Phase 1, up to 70% for Phase 2 on incremental business personal property value). Construction not yet started.\nThis project contributes to the Dallas-Fort Worth area's data center boom, with 141 facilities already in the region, driven by low energy costs and AI/cloud demand. ACS has local ties through Turner Construction, which built projects like DFW Airport's Terminal F and TCU's Amon G. Carter Stadium expansion. For more details, refer to ACS Group's investor presentations or Fort Worth Economic Development resources.955ms",
         "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.676384,
+          33.009397
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Aligned Energy",
+        "name": "DFW-01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "46",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.676384,
+          33.009397
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Aligned Energy",
+        "name": "DFW-02",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.794169,
+          32.787249
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Alpheus Communications",
+        "name": "Dallas: 2323 Bryan",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.780881,
+          32.78136
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Alpheus Communications",
+        "name": "Dallas: 2914 Taylor Steet",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.331712,
+          32.75162
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Alpheus Communications",
+        "name": "Fort Worth: 307 West 7th St",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.331504,
+          32.751169
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Alpheus Communications",
+        "name": "Fort Worth: 309 West 7th St",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.347541,
+          32.734221
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Amazon",
+        "name": "Dallas/Fort Worth",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Applied Digital",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.691728,
+          33.00642
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Ascent Corp",
+        "name": "Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "4",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.826812,
+          33.05422
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Atos Group",
+        "name": "Atos Group: Texas Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "Atos Group Texas Data Center is located at 5920 Windhaven Pkwy suite 120, Plano, TX 75093, USA. The gross building size for this location has not been provided. The gross colocation space is not available for this data center. No power information has been offered for this location. We found 154 data center locations within 50 miles of this facility. Certifications for this location include HIPAA, PCI DSS, SOC 1, SOC 2.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "AWS",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Blue Owl",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.388954,
+          30.567089
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Blueprint",
+        "name": "Blueprint Taylor",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "AUS",
+        "mw": "60",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.78017,
+          32.798655
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Brookfield Infrastructure Partners LP",
+        "name": "4211 Bryan St.",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.683801,
+          33.09514
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Brookfield Infrastructure Partners LP",
+        "name": "Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "15",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.133893,
+          32.837752
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "C I Host",
+        "name": "C I Host Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.878668,
+          32.83803
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Carrier-1 Data Centers",
+        "name": "Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.930389,
+          32.992086
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Carrollton",
+        "name": "Carrollton Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
       }
     },
     {
@@ -211,7 +453,7 @@
       "properties": {
         "layer": "dc",
         "developer": "Centersquare",
-        "name": "Centersquare Dallas/Fort Worth",
+        "name": "Centersquare Dallas/Fort Worth Data Center",
         "status": "Operating",
         "status_key": "1_Operating",
         "market": "DFW",
@@ -226,41 +468,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.074586,
-          32.55004
+          -96.683801,
+          33.09514
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Aligned Energy",
-        "name": "DFW-03",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
-        "market": "DFW",
-        "mw": 95,
-        "owner": "",
-        "note": "429,600 SF",
-        "color": "#e16f24"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -97.623078,
-          30.482199
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "Skybox Datacenters",
-        "name": "Skybox - Austin 1",
+        "developer": "Centersquare",
+        "name": "Centersquare Dallas/Fort Worth Data Center (Allen)",
         "status": "Operating",
         "status_key": "1_Operating",
-        "market": "AUS",
-        "mw": 30,
-        "owner": "Nathan",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
         "note": "",
         "color": "#1a7f37"
       }
@@ -270,21 +490,505 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.624658,
-          30.482465
+          -96.870435,
+          32.91193
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Skybox Datacenters",
-        "name": "Skybox - Austin 2",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
+        "developer": "Centersquare",
+        "name": "Dallas/Fort Worth (Webb Chapel)",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.868598,
+          32.80703
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CenturyLink",
+        "name": "Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.884456,
+          32.828039
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CenturyLink",
+        "name": "Dallas (Regal Row)",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.660623,
+          33.135804
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cisco",
+        "name": "Allen 2260 Co Rd 196",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cisco",
+        "name": "Richardson",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Clean Arc Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Clearview International",
+        "name": "Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.941453,
+          29.883057
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CloudBurst",
+        "name": "CloudBurst San Marcos",
+        "status": "In Development",
+        "status_key": "3_ In Development",
         "market": "AUS",
         "mw": "",
         "owner": "",
         "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cogent Communications Inc.",
+        "name": "Dallas (South Akard Street)",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "ColoCrossing",
+        "name": "Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "11",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cologix",
+        "name": "Dallas 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cologix",
+        "name": "Dallas 2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cologix",
+        "name": "Dallas 3",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cologlobal",
+        "name": "Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "ColoUnlimited",
+        "name": "ColoUnlimited",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.84029,
+          32.93205
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Compass",
+        "name": "Compass Datacenters",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.657363,
+          33.137895
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Compass Datacenters",
+        "name": "Dallas Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "10",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Compass Datacenters",
+        "name": "Red Oak 1 Data Center",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "252",
+        "owner": "Donald",
+        "note": "",
         "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.133665,
+          33.215552
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Core Scientific",
+        "name": "Denton Energy Center",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "349",
+        "owner": "",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CoreSite Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.872948,
+          32.817575
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CoreSpace",
+        "name": "7505 John W. Carpenter Freeway",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CoreWeave",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.798174,
+          32.785645
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Crown Castle",
+        "name": "717 North Harwood Street",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
       }
     },
     {
@@ -303,7 +1007,381 @@
         "status": "Operating",
         "status_key": "1_Operating",
         "market": "SA",
-        "mw": 18,
+        "mw": "18",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.787475,
+          29.418291
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "SAT5",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.787475,
+          29.418291
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "SAT6",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.69728,
+          30.206848
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "AUS2- AUS3",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "33",
+        "owner": "",
+        "note": "Located in the heart of Austin in the Met Center business park just seven minutes from Austin-Bergstrom International Airport, CyrusOne's AUS2 and AUS3 data centers provide a combined 242,000 sq. ft. of IT technical space. The data centers' infrastructure combines multiple levels of technology and security, resulting in no single point of failure.\n\nThe location is ideal for primary production systems backup and the synchronous data replication requirements of mission-critical applications. CyrusOne offers powered shells to provide customers with a fast time-to-market option, including fully redundant support systems, scalable power levels, and connectivity options.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.697885,
+          30.205992
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CyrusOne",
+        "name": "Austin Data Center II",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.701047,
+          30.206832
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CyrusOne",
+        "name": "Austin Data Center III",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.99568,
+          29.78995
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "CyrusOne",
+        "name": "Austin Data Center III",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.930389,
+          32.992086
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "DFW1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "90",
+        "owner": "Donald",
+        "note": "CyrusOne's DFW1 data center, located in the Dallas suburb of Carrollton, TX, is the largest facility of its kind in Texas, boasting 600,000 sq. ft. of technical space and state-of-the-art energy efficiency technologies. The data center is complemented by Class-A office space, including large-scale suites.\n\nThe DFW1 data center features zero-water consumption cooling and uses highly efficient multiple 160-ton Direct Evaporative Cooling Units with rapid restart and adaptive controlled microprocessors. The facility serves as the data center of choice for the 911 operations of several local cities that form the North Texas Emergency Communications Center (NTECC).",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.993601,
+          33.007343
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "DFW2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "26",
+        "owner": "Donald",
+        "note": "CyrusOne\u2019s 200,000-square-foot, DFW2 data center provides redundant power architecture, high-density capability, and an abundance of connectivity to many local and international companies.\n\nCyrusOne\u2019s DFW2 data center is conveniently located just 9 minutes from Dallas Fort Worth (DFW) International Airport in Lewisville, Texas, and within the Convergence Technology Center.\n\nDallas is an excellent market for colocation due to its central location, low risk for natural disasters, available fiber, and low cost of operatin",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.65995,
+          33.13852
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "DFW3-DFW5",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "50",
+        "owner": "Donald",
+        "note": "Located in the Dallas suburb of Allen, TX, CyrusOne's data center campus comprised of DFW3, DFW4 and DFW5 offers a massive 976,000 sq. ft. of technical space at full build-out. The facility is purpose-built, offering industry-leading efficiencies, the latest cooling technology, uniquely low PUEs, and multilayer security.\n\nWith over 90 acres, CyrusOne's Allen, Texas facilities make up the largest data center campus in Texas. Sustainability features include water-free cooling and the sourcing of renewable power, while robust security includes on-site security guards and anti-tailgating vehicle entry.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.65995,
+          33.13852
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "DFW3",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.65995,
+          33.13852
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "DFW4",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.65995,
+          33.13852
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "DFW5",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.60391,
+          31.854877
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "DFW10",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "190",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.555126,
+          29.844234
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "HOU1 Houston Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.560499,
+          29.844035
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "HOU3-HOU4",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.560499,
+          29.844035
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "HOU3 Houston Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "43",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.557365,
+          29.845021
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Cyrus One",
+        "name": "HOU4 Houston Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "48",
         "owner": "",
         "note": "",
         "color": "#1a7f37"
@@ -325,9 +1403,9 @@
         "status": "Operating",
         "status_key": "1_Operating",
         "market": "SA",
-        "mw": 9,
+        "mw": "9",
         "owner": "",
-        "note": "",
+        "note": "Located west of downtown San Antonio off state highway 151, CyrusOne's 110,000-sq. ft. SAT1 data center was the city's first enterprise colocation facility. The SAT1 data center boasts some of the lowest power costs in the country and can scale up to 20 megawatts of power from multiple substations.\n\nThe facility provides extra layers of physical security including hurricane shutters, impact-resistant glazing, and extra diesel on-site, and is located outside of flood zones. Features include 24x7x365 security onsite, video surveillance of the exterior and interior, and rigid access control to ensure the safety and security of mission-critical environments.",
         "color": "#1a7f37"
       }
     },
@@ -347,7 +1425,7 @@
         "status": "Operating",
         "status_key": "1_Operating",
         "market": "SA",
-        "mw": 36,
+        "mw": "36",
         "owner": "",
         "note": "",
         "color": "#1a7f37"
@@ -424,41 +1502,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.487034,
-          29.429456
+          -96.798118,
+          32.782025
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "H5 Data Centers",
-        "name": "H5 San Antonio",
+        "developer": "DartPoints",
+        "name": "Dallas",
         "status": "Operating",
         "status_key": "1_Operating",
-        "market": "SA",
-        "mw": "",
-        "owner": "Donald",
-        "note": "85,000 SF",
-        "color": "#1a7f37"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -98.652947,
-          29.449217
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "QTS Data Centers",
-        "name": "San Antonio 2",
-        "status": "Operating",
-        "status_key": "1_Operating",
-        "market": "SA",
-        "mw": 90,
-        "owner": "Nathan",
+        "market": "DFW",
+        "mw": "0",
+        "owner": "",
         "note": "",
         "color": "#1a7f37"
       }
@@ -468,19 +1524,173 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.796976,
-          29.232907
+          -97.695107,
+          30.215145
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Rowan",
-        "name": "Project Cinco",
-        "status": "In Development",
-        "status_key": "3_In Development",
-        "market": "SA",
-        "mw": 300,
+        "developer": "Data Foundry",
+        "name": "Austin 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
         "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.42457,
+          29.94522
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Data Foundry",
+        "name": "Houston 2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.713458,
+          30.19872
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Data Foundry",
+        "name": "Texas 1 (Austin Data Center)",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.133416,
+          31.554958
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "ACT1 - Waco Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "WACO",
+        "mw": "",
+        "owner": "Donald",
+        "note": "Discover the thriving business environment of the Waco metro area, boasting diversity, natural resources, and top-notch infrastructure. This dynamic region continually adapts to support local businesses, fostering growth and attracting talent and investments.\n\nWith DataBank's strategically positioned Waco data center, located just a short distance from Houston, you gain the advantage of resilience against natural disasters and the perfect setup for business continuity and disaster recovery. Additionally, this facility acts as a gateway to DataBank's Dallas-area data centers, allowing seamless access for mission-critical operations.\n\nSituated in the heart of downtown Waco, the ACT1 data center offers easy access to a variety of amenities, including restaurants and hotels. As a reliable disaster recovery backup, it serves major Texas cities such as Austin, Dallas, Houston, and San Antonio. Don't miss the opportunity to secure office space on the 3rd floor.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.798634,
+          32.77831
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW1 Downtown Dallas Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "29",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.711187,
+          32.966325
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW2 North Dallas",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "6",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.815293,
+          33.087455
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW3_& DFW8 Plano Campus",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "54",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.815293,
+          33.087455
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW3_Plano Data Center",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "14",
+        "owner": "Donald",
         "note": "",
         "color": "#0969da"
       }
@@ -490,17 +1700,325 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.671616,
-          29.472025
+          -96.815293,
+          33.087455
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Stream",
-        "name": "San Antonio II",
+        "developer": "DataBank",
+        "name": "DFW8_Plano Data Center",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "41",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.873693,
+          32.821687
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW4 Dallas Empire Central",
         "status": "Operating",
         "status_key": "1_Operating",
-        "market": "SA",
+        "market": "DFW",
+        "mw": "4",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW5 Dallas Infomart DC",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.865264,
+          32.83853
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW6 Dallas Love Field",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.791307,
+          32.922935
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW7 Dallas LBJ",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW9-DFW16 Red Oak Campus",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "480",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 10",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 11",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 12",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 13",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 14",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 15",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 16",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.818732,
+          32.523801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "DFW 9",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "60",
+        "owner": "Donald",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.556542,
+          29.844312
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "DataBank",
+        "name": "HOU2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
         "mw": "",
         "owner": "",
         "note": "",
@@ -512,21 +2030,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.71532,
-          29.44957
+          -87.301493,
+          33.173192
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Stream",
-        "name": "San Antonio III",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
-        "market": "SA",
-        "mw": 200,
+        "developer": "Dell",
+        "name": "Plano",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
         "owner": "",
         "note": "",
-        "color": "#e16f24"
+        "color": "#6e7781"
       }
     },
     {
@@ -534,43 +2052,1055 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -99.297352,
-          32.723453
+          -87.301493,
+          33.173192
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Vantage",
-        "name": "Frontier",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
-        "market": "WEST",
-        "mw": 1400,
-        "owner": "",
-        "note": "Massive Frontier DC campus",
-        "color": "#e16f24"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -99.79316,
-          32.49429
-        ]
-      },
-      "properties": {
-        "layer": "dc",
-        "developer": "Lancium",
-        "name": "Stargate (Oracle/OpenAI/SoftBank)",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
-        "market": "WEST",
+        "developer": "Digital Bridge (acquired Yondr Group)",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
         "mw": "",
         "owner": "Donald",
-        "note": "Stargate anchor project",
-        "color": "#e16f24"
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.870435,
+          32.91193
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "11830 Webb Chapel Road",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.6955,
+          30.21224
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "Austin AUS11",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "4",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.794169,
+          32.787249
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "Dallas DFW 10",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "24",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.827962,
+          32.933889
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "Dallas DFW 14",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "10",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.874049,
+          32.827174
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "Dallas DFW 36",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "12",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.84484,
+          33.02173
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "Dallas DFW11",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "10",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.853498,
+          32.979977
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "Dallas DFW12",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "7",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.961131,
+          32.998862
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "DFW 26",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "2",
+        "owner": "",
+        "note": "Digital Convergence comprises 829,372 sq. ft. on 168.4 acres, including 60 acres of additional land for future development, located in Lewisville, Texas, which competes in the Northwest Dallas submarket. The property was originally developed by Texas Instruments. The campus consists of ten large-box building connected to a central utility plant (CUP) by a central spine. Buildings 1, 11 and part of 3 are two stories with the remaining buildings single-story",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.41576,
+          29.94259
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "Houston IAH10",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.711949,
+          32.964995
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "50",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.715715,
+          32.96489
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "6",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.715705,
+          32.96609
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.757457,
+          32.984575
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.798634,
+          32.77831
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.794783,
+          32.787723
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.713141,
+          32.967373
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "12",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.713354,
+          32.966376
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "20",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.711187,
+          32.966325
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "13",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.711339,
+          32.966367
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.710659,
+          32.967336
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "12",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.711949,
+          32.965033
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Digital Realty",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Dimension Mission Critical Facilities",
+        "name": "Dallas (Plano)",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.97007,
+          33.395715
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "EdgeConnex PHX01 Phoenix",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "5",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.277397,
+          38.592309
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "SAC01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.169751,
+          32.84142
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "SDG01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.9578,
+          37.36394
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "SVC01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.957627,
+          37.363745
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "SVC02",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.827538,
+          39.560739
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "DEN01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.829255,
+          39.562886
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "DEN02",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "22",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.603593,
+          30.254737
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "JAX01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.381236,
+          25.792938
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "MIA01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.19151,
+          25.945476
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "MIA02",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "6",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.353705,
+          30.471774
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "TAL01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.420211,
+          33.729415
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "ATL01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "2",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.423486,
+          33.731664
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "ATL02",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "16",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.950757,
+          42.000771
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "CHI01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "20",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.674012,
+          41.732759
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "CHI02",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "6",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.980222,
+          43.8872
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "BOS01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.256202,
+          42.382053
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "DET01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.404208,
+          44.878812
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "MSP01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.130724,
+          36.065156
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "LAS01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.9153,
+          45.551726
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "POR01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "3",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.905952,
+          45.548012
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "POR02",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.04184,
+          40.45233
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "PIT01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.885745,
+          35.038885
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "MEM01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.70174,
+          36.14485
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "NAS01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "3",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.501342,
+          30.086313
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "AUS01",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "AUS",
+        "mw": "240",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
       }
     },
     {
@@ -584,12 +3114,12 @@
       },
       "properties": {
         "layer": "dc",
-        "developer": "Yondr Group",
-        "name": "Yondr Lancaster",
+        "developer": "Edge Connex",
+        "name": "DAL01",
         "status": "In Development",
-        "status_key": "3_In Development",
+        "status_key": "3_ In Development",
         "market": "DFW",
-        "mw": 550,
+        "mw": "",
         "owner": "",
         "note": "",
         "color": "#0969da"
@@ -600,21 +3130,329 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -96.736769,
-          32.58044
+          -95.745186,
+          29.79464
         ]
       },
       "properties": {
         "layer": "dc",
-        "developer": "Stack Infrastructure",
-        "name": "DFW02",
-        "status": "Under Construction",
-        "status_key": "2_Under Construction",
-        "market": "DFW",
-        "mw": 500,
-        "owner": "Nathan",
+        "developer": "Edge Connex",
+        "name": "HOU01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "1",
+        "owner": "",
         "note": "",
-        "color": "#e16f24"
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.984879,
+          40.72121
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "SLC01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.235371,
+          36.861829
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "NOR01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.467597,
+          37.638804
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "RIC01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.289893,
+          47.498188
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "SEA01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.808837,
+          40.081461
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edge Connex",
+        "name": "New Albany",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Element Critical",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.696266,
+          30.342695
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Element Critical Data Center",
+        "name": "Austin 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "5",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.75613,
+          29.802938
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Element Critical Data Center",
+        "name": "Houston 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "26",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Enterhost",
+        "name": "Enterhost",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.794169,
+          32.787249
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "DA4",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.81091,
+          33.064892
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "DA7",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.912761,
+          32.830237
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "DA9",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.706981,
+          32.954588
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "Equinix Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.364276,
+          29.935845
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "HO1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
       }
     },
     {
@@ -633,7 +3471,7 @@
         "status": "Operating",
         "status_key": "1_Operating",
         "market": "DFW",
-        "mw": 50,
+        "mw": "50",
         "owner": "",
         "note": "",
         "color": "#1a7f37"
@@ -681,6 +3519,2976 @@
         "owner": "",
         "note": "",
         "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "DA2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "DA3",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Equinix",
+        "name": "DA6",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.768462,
+          33.015644
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Evocative",
+        "name": "Dallas - Plano Data Center - DAL6",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Meta",
+        "name": "Fort Worth",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819519,
+          32.800985
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Flexential",
+        "name": "Dallas - Downtown Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "7",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.66651,
+          33.007333
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Flexential",
+        "name": "Dallas - Plano Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "18",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.752769,
+          32.994437
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Flexential",
+        "name": "Dallas - Richardson Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "4",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.753198,
+          32.99765
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "GIPNetworks",
+        "name": "GIPNetworks Plano/Synergy Park",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "GI Partners purchased from Flexential in 2016",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.048985,
+          32.442915
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Google",
+        "name": "Google Midlothian Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Donald",
+        "note": "In June of 2019, Google officially broke ground on its $600 million data center in Midlothian, Texas. Once fully operational, our data center will employ a number of people in a variety of full-time and contractor roles, including computer technicians, engineers, and various food services, maintenance, and security roles.\n\nSince 2011, we've awarded more than $4 million to Texas schools and nonprofits.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.487034,
+          29.429456
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "H5 Data Centers",
+        "name": "H5 Data Centers San Antonio",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "High Touch Technologies",
+        "name": "Dallas Data Center",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "INAP (Internap Corporation)",
+        "name": "Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "12",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Iron Mountain Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "IronGate Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.79316,
+          32.49429
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Lancium",
+        "name": "Stargate (Oracle/OpenAI/SoftBank)",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "WEST",
+        "mw": "",
+        "owner": "Donald",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.708055,
+          30.201209
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "LightEdge",
+        "name": "Austin II",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.811052,
+          33.066687
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Lincoln Rackhouse",
+        "name": "6715 Pinecrest Drive",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "",
+        "mw": "11",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.764914,
+          33.014971
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Lincoln Rackhouse",
+        "name": "Lincoln Rackhouse: Plano Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "The Plano Data Center by Lincoln Rackhouse is a state-of-the-art facility located in Plano, Texas, a thriving business and technology hub within the Dallas-Fort Worth Metroplex. Designed to deliver exceptional reliability, connectivity, and scalability, the Plano Data Center provides businesses with robust digital infrastructure to support mission-critical operations and evolving IT demands.\n\nKey Features:\nResilient Infrastructure: Engineered for maximum uptime, the data center features redundant power systems, advanced cooling technologies, and high-performance IT equipment to ensure seamless operations.\nCarrier-Neutral Connectivity: Offers access to a diverse ecosystem of network providers, enabling low-latency, high-speed connections to regional, national, and global markets.\nComprehensive Security: Multi-layered security protocols, including biometric access controls, 24/7 surveillance, and real-time threat detection, safeguard physical and digital assets.\nEnergy Efficiency: The facility integrates energy-efficient cooling systems and optimized power usage effectiveness (PUE) to align with sustainability goals while maintaining operational excellence.\nFlexible Solutions: Customizable colocation options, private suites, and modular configurations allow businesses to scale their IT infrastructure according to their unique requirements.\nStrategic Location:\nDallas-Fort Worth Metroplex: Positioned in Plano, a key hub for industries such as technology, finance, and healthcare, offering access to a rich talent pool and a vibrant business ecosystem.\nCentral Connectivity: Strategically located to provide efficient data transfer and connectivity across the U.S., with direct links to major international markets.\nBenefits:\nIdeal for enterprises requiring secure, scalable, and high-performance data center solutions.\nSupports industries with demanding compliance and security needs, including healthcare, finance, and cloud computing.\nBacked by Lincoln Rackhouse\u2019s proven expertise in delivering innovative and reliable data center management.\nThe Plano Data Center by Lincoln Rackhouse is a trusted partner for organizations seeking advanced, scalable, and secure IT solutions. With its strategic location, robust features, and sustainable design, it empowers businesses to achieve their operational and digital transformation goals.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.09274,
+          31.6124
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Lumen",
+        "name": "Waco 1 Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Donald",
+        "note": "The Waco 1 Data Center by Lumen Technologies is a secure, enterprise-class facility located in Waco, Texas, strategically positioned between the major metropolitan hubs of Dallas-Fort Worth, Austin, and Houston. Serving as a vital regional infrastructure node, this facility delivers resilient colocation, scalable network connectivity, and high-availability IT infrastructure for businesses across central Texas and beyond.\n\nEngineered to meet Tier III standards, the Waco 1 Data Center is equipped with redundant power systems, including dual utility feeds, uninterruptible power supplies (UPS), and backup generators to ensure continuous uptime. The site is supported by N+1 precision cooling systems, which maintain stable thermal conditions for high-density and performance-critical workloads.\n\nSecurity is a top priority at Waco 1, with 24/7 on-site security personnel, biometric access controls, multi-layer video surveillance, and advanced fire detection and suppression systems safeguarding the facility. It supports compliance with key industry standards, including SOC 1 & 2, PCI DSS, and HIPAA, making it ideal for organizations in regulated industries such as healthcare, financial services, and government.\n\nAs a carrier-neutral facility, Waco 1 offers access to a diverse ecosystem of telecom providers, ISPs, and cloud service platforms. Direct integration with the Lumen global IP backbone provides low-latency, high-speed connectivity to major markets throughout Texas and across North America, supporting hybrid cloud deployments, disaster recovery architectures, and edge computing initiatives.\n\nWith its central geographic location, enterprise-grade infrastructure, and seamless network access, the Waco 1 Data Center is a reliable and scalable solution for businesses seeking robust digital infrastructure in a stable, strategically situated environment.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.628735,
+          29.78378
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Mapletree Redwood",
+        "name": "13831 Katy Freeway",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.133416,
+          31.554958
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Mapletree Redwood",
+        "name": "700 Austin",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.768462,
+          33.015644
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Mapletree Redwood Data Centre Trust (MRDCT)",
+        "name": "1221 Coit Road",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.757457,
+          32.984575
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Mapletree Redwood Data Centre Trust (MRDCT)",
+        "name": "17201 Waterview",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.661671,
+          33.000205
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Mapletree Redwood Data Centre Trust (MRDCT)",
+        "name": "3300 Essex Drive",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.154272,
+          32.666833
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Mapletree Redwood Data Centre Trust (MRDCT)",
+        "name": "5000 South Bowen",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.79454,
+          32.7838
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "MCFMAX/ Provision Data Services",
+        "name": "2020 Live Oak",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "2",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.25946,
+          32.9839
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Meta",
+        "name": "Meta, Inc.: Fort Worth Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "Facebook\u2019s new Fort Worth Data Center is a new, 200-acre data campus being delivered in multiple phases. The site includes three IT load data centers with rooftop air handling equipment, outdoor standby diesel generators and supporting electrical substation. An administrative building connects two of the data centers; the third data center is a standalone building.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Microsoft",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.365739,
+          29.753463
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Netrality Data Centers",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Netrality Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Northway Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Novartis",
+        "name": "Fort Worth",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Novva Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "NTT",
+        "name": "Texas Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.65821,
+          32.980635
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "NTT Global Data Centers",
+        "name": "NTT Dallas TX1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "16",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.022657,
+          29.750683
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Open Origin",
+        "name": "Marfa",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "WEST",
+        "mw": "",
+        "owner": "",
+        "note": "Part of the $500B Stargate Project; backed by Open AI, SoftBank and Oracle",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Oracle",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Patronus Data Centers",
+        "name": "Frisco",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.005116,
+          32.745417
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "PowerHouse Data Centers",
+        "name": "PowerHouse Grand Prairie",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "500",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.944127,
+          32.82938
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "PowerHouse Data Centers",
+        "name": "PowerHouse Irving",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "201",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.878668,
+          32.83803
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Prime Data Centers",
+        "name": "DFW01-01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.770078,
+          30.10702
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Prime Data Centers",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.509712,
+          29.723273
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "PS Lightwave",
+        "name": "LightHouse Datacenter",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.259543,
+          32.988687
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "QTS  Data Centers",
+        "name": "Fort Worth 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "200",
+        "owner": "Nathan",
+        "note": "Expanding by an additional 169,000 square feet; QTS' second data center in the broader Dallas-Ft. Worth-Irving market that serves Fortune 1000 enterprises as well as regional financial services, healthcare and technology companies. This connectivity-rich facility is carrier-neutral with 12 carriers and is situated adjacent to a number of other large Enterprise and technology companies.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.982961,
+          32.897062
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "QTS  Data Centers",
+        "name": "Irving 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "165",
+        "owner": "Nathan",
+        "note": "QTS is owned by Blackstone (purchased in August 2021)",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.652947,
+          29.449217
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "QTS  Data Centers",
+        "name": "San Antonio 2",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "90",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "QTS  Data Centers",
+        "name": "South Dallas (1)",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "Highland Associated of New York is the project designer",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "QTS  Data Centers",
+        "name": "South Dallas (2)",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "Highland Associated of New York is the project designer",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Quality Technology Services (QTS)",
+        "name": "Fort Worth",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "43",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Quality Technology Services (QTS)",
+        "name": "Irving",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "120",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.362185,
+          29.759981
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Quasar Data Center",
+        "name": "Quasar Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Rackspace",
+        "name": "Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "RagingWire",
+        "name": "Dallas-Fort Worth",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.001404,
+          30.655646
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Riot: Rockdale, TX",
+        "name": "",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "AUS",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.247988,
+          29.797077
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Rowan",
+        "name": "Project Cinco",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "SA",
+        "mw": "300",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.647182,
+          30.488228
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Sabey Data Centers",
+        "name": "Austin",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "54",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.86121,
+          30.01802
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Serverfarm",
+        "name": "",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "ServerPhase",
+        "name": "ServerPhase Data Center",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.737843,
+          33.006226
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Atlantic Station",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "100",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.623078,
+          30.482199
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Skybox - Austin 1",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "30",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Houston",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "26",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.833423,
+          33.068992
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Legacy",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "100",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Legacy I",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Legacy II",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "20",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Legacy III",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Legacy IV",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Legacy V",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.549232,
+          30.542664
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "PowerCampus Austin",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "AUS",
+        "mw": "600",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.756651,
+          32.592201
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "PowerCampus Dallas",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "300",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "SoftLayer Technologies (IBM Cloud)",
+        "name": "The Planet 1700 Summit",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "SoftLayer Technologies (IBM Cloud)",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.81091,
+          33.064892
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stack Infrastructure",
+        "name": "DFW01",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "48",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.699236,
+          33.019677
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stack Infrastructure",
+        "name": "DFW01A",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "21",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.699236,
+          33.019677
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stack Infrastructure",
+        "name": "DFW01B",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "11",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.699236,
+          33.019677
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stack Infrastructure",
+        "name": "DFW01C",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "48",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.736769,
+          32.58044
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stack Infrastructure",
+        "name": "DFW02",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "500",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "State Farm",
+        "name": "Richardson",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Storagepipe",
+        "name": "Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.87924,
+          32.83671
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW I",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.873693,
+          32.821687
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW II",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.81091,
+          33.064892
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW III - Legacy Business Park",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "30",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.661671,
+          33.000205
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW IV",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "2",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.68749,
+          32.99801
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW V",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "4",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.815293,
+          33.087455
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW VI",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "20",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.654027,
+          32.983539
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW VII",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "43",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.799759,
+          32.781339
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "DFW VIII - X",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "90",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.486424,
+          30.177862
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "Houston I",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.671616,
+          29.472025
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "San Antonio II",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.685924,
+          32.588749
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "Wilmer II Hyperscale Campus (DFW C)",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "240",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Sungard",
+        "name": "Dallas DAL-1001 Data Center",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "6",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Sungard",
+        "name": "Dallas DAL-3001 Workgroup",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Switch",
+        "name": "The Rock",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "AUS",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.811052,
+          33.066687
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "T5",
+        "name": "Dallas Campus",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "T5 Data Centers",
+        "name": "T5 @ Dallas I",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "22",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "T5 Data Centers",
+        "name": "T5 @ Dallas II",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "T5 Data Centers",
+        "name": "T5 @ Dallas III",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "10",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "T5 Data Centers",
+        "name": "T5@Dallas I",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "T5 Data Centers",
+        "name": "T5@Dallas II",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "T5 Data Centers",
+        "name": "T5@Dallas III",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Texas Critical Data Centers",
+        "name": "",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "WEST",
+        "mw": "250",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.59164,
+          30.421155
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Thin-nology",
+        "name": "Austin Colocation Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TierPoint",
+        "name": "Dallas",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "11",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.857292,
+          32.807919
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TierPoint",
+        "name": "Dallas Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TierPoint",
+        "name": "Dallas-Allen",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "3",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.657966,
+          33.137065
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TierPoint",
+        "name": "TierPoint: Dallas - Allen Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "2",
+        "owner": "",
+        "note": "Engineered for reliability with 2N A-side and B-side power distribution, two redundant 2-Megawatt Cummins generators, each with a minimum 48-hour runtime, and backed by a 100% uptime SLA.\nTierPoint Dallas - Allen Data Center is located at 840 Allen Commerce Parkway, Allen, TX, USA. The data center is 30000 sqft. There is a total of 16000 sqft in raised floor space for colocation. It has access to 2.0 MW of power. We found 153 data center locations within 50 miles of this facility. Certifications for this location include EU-US, HIPAA, HITRUST CSF, ISO 27001, NIST 800-53, PCI DSS, SOC 1 Type 2, SOC 2, SOC 2 Type 2.",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TierPoint",
+        "name": "TierPoint: Dallas Fort Worth Data Center",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "Engineered for reliability with 2N A-side and B-side power distribution, eight 2.25MW generators in a 2N configuration ensure a minimum of 48 hours of runtime\u2014backed by a 100% uptime SLA.",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.510234,
+          30.594975
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Tract",
+        "name": "",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "AUS",
+        "mw": "360",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.459005,
+          30.066248
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TRG Data Centers",
+        "name": "Houston Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.36357,
+          29.759102
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TRG Data Centers",
+        "name": "Houston Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.469303,
+          29.809192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Trinicom Communications",
+        "name": "Trinicom Communications Data Center",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "HOU",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Vantage Data Centers",
+        "name": "",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "Nathan",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.84484,
+          33.02173
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "VAZATA",
+        "name": "Dallas  DAA (DAL I)",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "3",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.853498,
+          32.979977
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "VAZATA",
+        "name": "Dallas DAB",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.84484,
+          33.02173
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "VAZATA",
+        "name": "Dallas DAC",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "3",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.628474,
+          33.223385
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "VAZATA",
+        "name": "McK",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Waymark Communications",
+        "name": "Waymark Plano",
+        "status": "",
+        "status_key": "",
+        "market": "",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.94729,
+          31.42899
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "XC Networks",
+        "name": "4316 Bryan",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "2",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "XO Communications",
+        "name": "Dallas (Mockingbird Ln.)",
+        "status": "",
+        "status_key": "",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#6e7781"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.873693,
+          32.821687
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Zayo Group LLC",
+        "name": "1100 Empire Central Place",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "1",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.791307,
+          32.922935
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Zayo Group LLC",
+        "name": "6606 LBJ Fwy",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "2",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.865264,
+          32.83853
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Zayo Group LLC",
+        "name": "8600 Harry Hines Blvd.",
+        "status": "Operating",
+        "status_key": "1_Operating",
+        "market": "DFW",
+        "mw": "2",
+        "owner": "",
+        "note": "",
+        "color": "#1a7f37"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.21193,
+          29.62706
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Vantage",
+        "name": "Frontier",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "WEST",
+        "mw": "1,400",
+        "owner": "",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.756651,
+          32.592201
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Yondr Group",
+        "name": "",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "550",
+        "owner": "",
+        "note": "",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.074586,
+          32.55004
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Aligned Energy",
+        "name": "DFW-03",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "95",
+        "owner": "",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.71532,
+          29.44957
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Stream",
+        "name": "San Antonio III",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "SA",
+        "mw": "200",
+        "owner": "",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.624658,
+          30.482465
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Skybox Datacenters",
+        "name": "Skybox - Austin 2",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.331527,
+          32.753521
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Edged Energy",
+        "name": "Edged Fort Worth",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "$1.1B hyperscaler-grade data center. Fort Worth Zoning Commission approved zoning changes Apr 8, 2026 (KERA News); City Council abatement vote tabled Apr 2 per Fort Worth Star-Telegram. Council final vote expected. Added by weekly intel agent.",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Google (funded)",
+        "name": "Goodnight Data Center",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "WEST",
+        "mw": "",
+        "owner": "",
+        "note": "Google-funded data center. Texas state air permit application filed for on-site gas plant (WIRED Apr 3, 2026). Major market signal: hyperscaler co-located behind-the-meter gas generation. Added by weekly intel agent.",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Iron Mountain",
+        "name": "Iron Mountain Austin Campus",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "AUS",
+        "mw": "",
+        "owner": "",
+        "note": "Iron Mountain targeting new 7-building data center campus outside Austin, TX (DCD Mar 20, 2026). Scale suggests major hyperscaler leasing play in AUS market. Added by weekly intel agent.",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.944127,
+          32.82938
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "PowerHouse Data Centers",
+        "name": "PowerHouse Irving DC1",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "DFW",
+        "mw": "",
+        "owner": "",
+        "note": "First Irving DC from PowerHouse; structure topped out Mar 2026. Interior systems, MEP work continuing (DCD Mar 30, 2026). Added by weekly intel agent.",
+        "color": "#e16f24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.247988,
+          29.797077
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Microsoft",
+        "name": "Microsoft Medina TX (2 sites)",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "SA",
+        "mw": "",
+        "owner": "",
+        "note": "Microsoft announced $52M across 2 data center projects in Medina County, TX ($26M each), Mar 2026 (DCD). Medina County sits SW of San Antonio. Adjacent to Regis SA/South market activity. Added by weekly intel agent.",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.407373,
+          32.470591
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "TBD (Nolan County $7B)",
+        "name": "Nolan County $7B DC (Sweetwater)",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "WEST",
+        "mw": "",
+        "owner": "",
+        "note": "$7 billion data center project. Nolan County commissioners approved 10-year tax abatement Apr 2026 (KTXS Apr 15). Developer/anchor tenant not yet publicly named. West TX wind-heavy grid. Added by weekly intel agent.",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.301493,
+          33.173192
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "Concord New Energy (HK:00182)",
+        "name": "Concord New Energy TX 1GW DC",
+        "status": "In Development",
+        "status_key": "3_ In Development",
+        "market": "OTHER",
+        "mw": "1000",
+        "owner": "",
+        "note": "Concord New Energy (HKEX: 00182) received ERCOT grid-connection approval for a 1 GW data center co-located with existing utility-scale solar + BESS project in Texas (TipRanks, AASTOCKS Apr 15, 2026). AI-ready push. Exact TX county not yet disclosed. Added by weekly intel agent.",
+        "color": "#0969da"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.658313,
+          33.596892
+        ]
+      },
+      "properties": {
+        "layer": "dc",
+        "developer": "xAI",
+        "name": "Colossus 2 (Mississippi - out-of-state comp)",
+        "status": "Under Construction",
+        "status_key": "2_Under Construction",
+        "market": "OTHER",
+        "mw": "",
+        "owner": "",
+        "note": "xAI Colossus 2 (Memphis-area scale-out in Mississippi). On-site gas turbines approved by Mississippi regulator Mar 17, 2026; lawsuit threatened (Voltility briefing Mar 20). Tracked as out-of-state hyperscaler competitor for SE/South hyperscaler demand signal. Added by weekly intel agent.",
+        "color": "#e16f24"
       }
     },
     {
@@ -747,7 +6555,7 @@
         "utility": "Oncor (dual w/ Navarro EC)",
         "stage": "Active development",
         "mw": "1500",
-        "note": "7 miles SW of Corsicana, TX (Navarro County) \u2014 NOT Fort Worth/Carswell AFB. Substation S+W of Corsicana, adjacent to Riot Blockchain facility. 622 ac pursuing LOI + 100+ ac expansion w/ multiple landowners. Oncor 345kV + Atmos 10.75\" pipeline. 1.5 GW target (300 MW BTM gas by 2028, 250 MW grid expanding). EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.",
+        "note": "7 miles SW of Corsicana, TX (Navarro County) - NOT Fort Worth/Carswell AFB. Substation S+W of Corsicana, adjacent to Riot Blockchain facility. 622 ac pursuing LOI + 100+ ac expansion w/ multiple landowners. Oncor 345kV + Atmos 10.75-inch pipeline. 1.5 GW target (300 MW BTM gas by 2028, 250 MW grid expanding). EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.",
         "precise": true,
         "color": "#cf222e"
       }
@@ -770,7 +6578,7 @@
         "utility": "CPS Energy",
         "stage": "INFERENCE project",
         "mw": "250",
-        "note": "Tri-County substation, Schertz, TX (Guadalupe County, NE San Antonio). Flagged INFERENCE project (not full data center) per Regis Fee Breakdown. City centroid approximate \u2014 Tri-County substation precise coord still needed (pending Donald). Planned 250 MW.",
+        "note": "Tri-County substation, Schertz, TX (Guadalupe County, NE San Antonio). Flagged INFERENCE project (not full data center) per Regis Fee Breakdown. City centroid approximate - Tri-County substation precise coord still needed (pending Donald). Planned 250 MW.",
         "precise": false,
         "color": "#cf222e"
       }
@@ -793,7 +6601,7 @@
         "utility": "BBEC",
         "stage": "Active development",
         "mw": "1500",
-        "note": "1 mile SW of Lockhart, TX (Caldwell County \u2014 NOT Fisher County; DC Land Sheet was stale). Served by BBEC (Bluebonnet EC). 327 ac LOI in negotiation + 579 ac expansion w/ 2 landowners. Kinder Morgan 42\" + Energy Transfer 20\" gas pipelines adjacent. LCRA 345kV. 1.5 GW target (287 MW BTM gas 2028, 40-74 MW grid expanding). 25 mi from Austin Bergstrom. EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.",
+        "note": "1 mile SW of Lockhart, TX (Caldwell County - NOT Fisher County; DC Land Sheet was stale). Served by BBEC (Bluebonnet EC). 327 ac LOI in negotiation + 579 ac expansion w/ 2 landowners. Kinder Morgan 42-inch + Energy Transfer 20-inch gas pipelines adjacent. LCRA 345kV. 1.5 GW target (287 MW BTM gas 2028, 40-74 MW grid expanding). 25 mi from Austin Bergstrom. EXACT coordinate from Feb 11 2026 Regis Portfolio Overview.",
         "precise": true,
         "color": "#cf222e"
       }

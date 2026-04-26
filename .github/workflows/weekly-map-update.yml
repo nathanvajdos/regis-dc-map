@@ -1,0 +1,44 @@
+name: Weekly DC Map Update
+
+# Runs every Monday at 12:00 UTC (= 7am CDT / 6am CST during winter)
+# Also runnable on demand via the "Run workflow" button on the Actions tab.
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build map (pull from Smartsheet, geocode, render HTML)
+        env:
+          SMARTSHEET_TOKEN: ${{ secrets.SMARTSHEET_TOKEN }}
+          MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
+        run: python build_map.py
+
+      - name: Commit + push if changed
+        run: |
+          git config user.name  "regis-map-bot[bot]"
+          git config user.email "regis-map-bot@users.noreply.github.com"
+          git add index.html dc_locations.geojson
+          if ! git diff --staged --quiet; then
+            git commit -m "Weekly map update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "✅ Pushed updated map"
+          else
+            echo "ℹ️ No changes detected — sheet content identical since last run"
+          fi
