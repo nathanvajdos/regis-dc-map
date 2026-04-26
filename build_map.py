@@ -23,6 +23,7 @@ import urllib.parse
 import urllib.request
 
 SHEET_ID = 943562557443972
+SHEET_PERMALINK = "MfQHrM892gvWm38j44Vh3C5R2X3xxjxvC6G89vQ1"  # for deep-link URLs to specific rows
 
 # Smartsheet column IDs (stable; from one-time discovery)
 COL = {
@@ -174,6 +175,11 @@ def main():
             cached += 1
 
         status_label = dc["status"].replace("1_", "").replace("2_", "").replace("3_", "").replace("4_", "").strip()
+        # Build full address line for display
+        addr_parts = [p for p in [dc["address"], dc["city"], dc["state"], dc["zip"]] if p]
+        full_addr = ", ".join(addr_parts)
+        # Deep-link to the row in Smartsheet
+        ss_url = f"https://app.smartsheet.com/sheets/{SHEET_PERMALINK}?rowId={dc['row_id']}" if dc["row_id"] else ""
         dc_features.append({
             "type": "Feature",
             "geometry": {"type": "Point", "coordinates": [dc["lon"], dc["lat"]]},
@@ -187,6 +193,11 @@ def main():
                 "mw": dc["mw"] or "",
                 "owner": dc["owner"] or "",
                 "note": dc["note"] or "",
+                "address": full_addr,
+                "city": dc["city"] or "",
+                "county": dc["county"] or "",
+                "state": dc["state"] or "",
+                "ss_url": ss_url,
                 "color": STATUS_COLORS.get(dc["status"], "#6e7781"),
             },
         })
@@ -456,8 +467,10 @@ map.on('load', () => {{
       <div class="field"><strong>Status:</strong> ${{p.status}}</div>
       <div class="field"><strong>Market:</strong> ${{p.market}}</div>
       ${{p.mw ? `<div class="field"><strong>Capacity:</strong> ${{p.mw}} MW</div>` : ''}}
+      ${{p.address ? `<div class="field"><strong>Address:</strong> ${{p.address}}</div>` : ''}}
       ${{p.owner ? `<div class="field"><strong>Regis owner:</strong> ${{p.owner}}</div>` : ''}}
       ${{p.note ? `<div class="note">${{p.note}}</div>` : ''}}
+      ${{p.ss_url ? `<div class="field" style="margin-top:8px;"><a href="${{p.ss_url}}" target="_blank" style="color:#0969da; text-decoration:none; font-weight:600;">↗ Open row in Smartsheet</a></div>` : ''}}
     `;
   }};
 
@@ -523,7 +536,9 @@ map.on('load', () => {{
     {{ key: 'market',    label: 'Market',     type: 'text'   }},
     {{ key: 'mw',        label: 'MW',         type: 'num'    }},
     {{ key: 'status',    label: 'Status',     type: 'text'   }},
+    {{ key: 'address',   label: 'Address',    type: 'text'   }},
     {{ key: 'owner',     label: 'Regis Owner',type: 'text'   }},
+    {{ key: 'ss_url',    label: 'Smartsheet', type: 'link'   }},
   ];
 
   const getVal = (f, key) => {{
@@ -571,6 +586,10 @@ map.on('load', () => {{
             v = `<span class="status-dot" style="background:${{p.color}}"></span>${{v}}`;
           }} else if (c.key === 'precise') {{
             v = v === true || v === 'true' ? 'exact' : 'approx';
+          }} else if (c.key === 'ss_url') {{
+            v = v ? `<a href="${{v}}" target="_blank" onclick="event.stopPropagation()" style="color:#0969da; text-decoration:none; font-weight:600;">↗ Open</a>` : '';
+          }} else if (c.key === 'address' && v) {{
+            v = `<span style="font-size:10px; color:#57606a;">${{v}}</span>`;
           }}
           html += `<td>${{v || '—'}}</td>`;
         }});
